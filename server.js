@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const handlebars = require('handlebars');
 
 const app = express()
-const port = 8080
+const port = 3000
 const urlDB = 'mongodb://localhost:27017/tastingSpirit'
 
 // Body Parser
