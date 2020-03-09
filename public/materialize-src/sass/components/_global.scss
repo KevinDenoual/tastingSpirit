@@ -38,11 +38,22 @@ ul {
 
 a {
 	color: $link-color;
-	text-decoration: none;
+  text-decoration: none;
 
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
 }
+
+// Background color
+.bg-beige {
+  background-color: $beige;
+}
+
+// Account-login
+.account-login {
+  text-align: center;
+}
+
 
 
 // Positioning
@@ -377,7 +388,7 @@ ul.staggered-list li {
 .page-footer {
   padding-top: 20px;
   color: $footer-font-color;
-  background-color: $footer-bg-color;
+  background-color: $vert;
 
   .footer-copyright {
     overflow: hidden;
@@ -387,7 +398,7 @@ ul.staggered-list li {
     justify-content: space-between;
     padding: 10px 0px;
     color: $footer-copyright-font-color;
-    background-color: $footer-copyright-bg-color;
+    background-color: $noir;
   }
 }
 

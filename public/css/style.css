@@ -2015,6 +2015,12 @@ a {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent; }
 
+.bg-beige {
+  background-color: #E8E6DB; }
+
+.account-login {
+  text-align: center; }
+
 .valign-wrapper {
   display: flex;
   align-items: center; }
@@ -2240,7 +2246,7 @@ ul.staggered-list li {
 .page-footer {
   padding-top: 20px;
   color: #fff;
-  background-color: #ee6e73; }
+  background-color: #1B3834; }
   .page-footer .footer-copyright {
     overflow: hidden;
     min-height: 50px;
@@ -2249,7 +2255,7 @@ ul.staggered-list li {
     justify-content: space-between;
     padding: 10px 0px;
     color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(51, 51, 51, 0.08); }
+    background-color: #080A09; }
 
 table, th, td {
   border: none; }
@@ -3132,7 +3138,7 @@ table span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #1B3834;
   width: 100%;
   height: 56px;
   line-height: 56px; }
@@ -3688,7 +3694,6 @@ small {
   height: 36px;
   line-height: 36px;
   padding: 0 16px;
-  text-transform: uppercase;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent; }
 
@@ -3760,7 +3765,7 @@ small {
 .btn, .btn-large, .btn-small {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #D6B84D;
   text-align: center;
   letter-spacing: .5px;
   transition: background-color .2s ease-out;
@@ -4709,7 +4714,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   .input-field.col .prefix ~ .validate ~ label {
     width: calc(100% - 3rem - 1.5rem); }
   .input-field > label {
-    color: #9e9e9e;
+    color: #1B3834;
     position: absolute;
     top: 0;
     left: 0;
@@ -5122,7 +5127,7 @@ textarea {
 input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before,
 input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
   transform: scale(2.4);
-  background-color: rgba(38, 166, 154, 0.15); }
+  background-color: rgba(211, 35, 35, 0.15); }
 
 input[type=checkbox]:not(:disabled) ~ .lever:active:before,
 input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::before {

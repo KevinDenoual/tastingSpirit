@@ -7,10 +7,10 @@
   height: $button-height;
   line-height: $button-height;
   padding: $button-padding;
-  text-transform: uppercase;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent; // Gets rid of tap active state
 }
+
 
 // Disabled shared style
 .btn.disabled,
@@ -65,7 +65,7 @@
 .btn {
   text-decoration: none;
   color: $button-raised-color;
-  background-color: $button-raised-background;
+  background-color: $jaune;
   text-align: center;
   letter-spacing: .5px;
   @extend .z-depth-1;

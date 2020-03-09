@@ -6,12 +6,23 @@ const router = express.Router()
 const home = require('./controllers/home')
 const decouvrir = require('./controllers/decouvrir')
 const guide = require('./controllers/guide')
-const profil = require('./controllers/profil/profil')
+const rechercher = require('./controllers/rechercher')
+const espacePerso = require('./controllers/profil/espacePerso')
 const admin = require('./controllers/admin/admin')
+const connexion = require('./controllers/connexion')
+const createCompte = require('./controllers/createCompte')
 
 // Home
 router.route('/')
     .get(home.get)
+
+// Connexion
+router.route('/connexion')
+    .get(connexion.get)
+
+// Creation de compte
+router.route('/createCompte')
+    .get(createCompte.get)
 
 // Decouvrir
 router.route('/decouvrir')
@@ -21,9 +32,13 @@ router.route('/decouvrir')
 router.route('/guide')
     .get(guide.get)
 
+// Rechercher
+router.route('/rechercher')
+    .get(rechercher.get)
+
 // Profil
-router.route('/profil')
-    .get(profil.get)
+router.route('/profil/espacePerso')
+    .get(espacePerso.get)
 
 // Admin
 router.route('/admin')
