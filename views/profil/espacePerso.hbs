@@ -2,15 +2,19 @@
     <div class="nav-content">
         <ul class="tabs tabs-transparent">
             <li class="tab"><a href="#degustation">dégustation </a></li>
-            <li class="tab"><a href="#test2">Mes archives</a></li>
-            <li class="tab"><a href="#test3">Ma collection</a></li>
-            <li class="tab"><a href="#test4">Wish list</a></li>
+            <li class="tab"><a href="#archives">Mes archives</a></li>
+            <li class="tab"><a href="#collection">Ma collection</a></li>
+            <li class="tab"><a href="#wish">Wish list</a></li>
         </ul>
     </div>
 </nav>
 
+{{!-- =============== PAGE DEGUSTATION ===============--}}
+
 
 <div id="degustation" class="container">
+
+    {{!-- =============== EN-TETE ===============--}}
 
     <div class="degust-title">
         <h3>Degustation</h3>
@@ -39,290 +43,692 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="visu">
-            <div class="section-title">
+    {{!-- =============== VISUEL ===============--}}
+
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header section-title">
                 <h6>Visuel</h6>
             </div>
-            <div class="limpidité">
-                <div class="st">
-                    <p>Limpidité</p>
-                </div>
+            <div class="collapsible-body">
                 <div class="row">
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>trouble</span>
-                            </label>
-                        </p>
+                    <div class="visu">
+                        <div class="limpidité">
+                            <div class="st">
+                                <p>Limpidité</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>trouble</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>flou</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>opalescent</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>limpide</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brillance">
+                            <div class="st">
+                                <p>Brillance</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>terne</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>lumineuse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>éclatante</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intensité">
+                            <div class="st">
+                                <p>Intensité colorante</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>pâle</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>claire</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>soutenue</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="capillarité">
+                            <div class="st">
+                                <p>Capillarité (larmes)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>coulante</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>épaisse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>grasse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>visqueuse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="couleur">
+                            <div class="st">
+                                <p>Couleur (nuance du disque)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>or vert</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>or doré</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>or paille</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>or ambré</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>flou</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>opalescent</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>limpide</span>
-                            </label>
-                        </p>
+                </div>
+
+            </div>
+        </li>
+
+        {{!-- =============== OLFACTIF ===============--}}
+
+        <li>
+            <div class="collapsible-header section-title">
+                 <h6>Olfactif</h6>
+            </div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div class="olfactif">
+                        <div class="fist-nose">
+                            <div class="st">
+                                <p>1er nez (avant aération)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>1ère impression (franchise)</p>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>douteuse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>simple</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>franche</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>complexe</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>Intensité aromatique</p>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>faible</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>modérée</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>puissante</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>Citez deux familles aromatiques :</p>
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"
+                                        placeholder="Par voie directe ou indirecte (rétro-olfaction)"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>Citez trois arômes :</p>
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"></textarea>
+                                    <label>Par voie directe ou indirecte (rétro-olfaction)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-nose">
+                            <div class="st">
+                                <p>2eme nez (après aération)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>Citez deux familles aromatiques :</p>
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"></textarea>
+                                    <label>Par voie directe ou indirecte (rétro-olfaction)</label>
+                                </div>
+                            </div>
+                            <div class="row bg-beige">
+                                <p>Citez trois arômes :</p>
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"></textarea>
+                                    <label>Par voie directe ou indirecte (rétro-olfaction)</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="brillance">
-                <div class="st">
-                    <p>Brillance</p>
-                </div>
+        </li>
+
+
+        {{!-- =============== GUSTATIF ===============--}}
+
+        <li>
+            <div class="collapsible-header section-title">
+                <h6>Gustatif</h6>
+            </div>
+            <div class="collapsible-body">
                 <div class="row">
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>terne</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>lumineuse</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>éclatante</span>
-                            </label>
-                        </p>
+                    <div class="gustatif">
+                        <div class="attaque">
+                            <div class="st">
+                                <p>Attaque</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>faible</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>ample</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>franche</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>puissante</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acidité">
+                            <div class="st">
+                                <p>Acidité</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>molle</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>fraîche</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s2">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>vive</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>nerveuse</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="moelleux">
+                            <div class="st">
+                                <p>Moelleux (consistance-rondeur-alcool)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l2 s2">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>sec</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l2 s2">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>tendre</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l2 s2">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>gras</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l2 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>capiteux</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l2 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>lourd</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sale">
+                            <div class="st">
+                                <p>Salé</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>absent</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>iodé/marin</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>algal</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="aromes">
+                            <div class="st">
+                                <p>Arômes</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"></textarea>
+                                    <label>Par rétro-olfaction</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="finale">
+                            <div class="st">
+                                <p>Finale</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>courte</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>moyenne</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>longue</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>persistante</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="intensité">
-                <div class="st">
-                    <p>Intensité colorante</p>
-                </div>
+        </li>
+
+
+        {{!-- =============== CONCLUSION ===============--}}
+
+        <li>
+            <div class="collapsible-header section-title">
+                <h6>Conclusion</h6>
+            </div>
+            <div class="collapsible-body">
                 <div class="row">
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>pâle</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>claire</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>soutenue</span>
-                            </label>
-                        </p>
+                    <div class="CONCLUSION">
+                        <div class="qualité">
+                            <div class="st">
+                                <p>Qualité</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>faible</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>acceptable</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>bonne</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>excellente</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="moment">
+                            <div class="st">
+                                <p>Moment</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>apéritif</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>repas</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l4 s4">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>digestif</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="association">
+                            <div class="st">
+                                <p>Association</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="input-field col s12">
+                                    <textarea class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prix">
+                            <div class="st">
+                                <p>Prix public (pour une bouteille de 75cl)</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>Inférieur à 30€</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>Entre 30€ et 50€</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>Entre 50€ et 70€</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="col l3 s3">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>Supérieur à 70€</span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="note">
+                            <div class="st">
+                                <p>Note</p>
+                            </div>
+                            <div class="row bg-beige">
+                                <div class="input-field col s4">
+                                    <textarea class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="capillarité">
-                <div class="st">
-                    <p>Capillarité (larmes)</p>
-                </div>
-                <div class="row">
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>coulante</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>épaisse</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>grasse</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>visqueuse</span>
-                            </label>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="couleur">
-                <div class="st">
-                    <p>Couleur (nuance du disque)</p>
-                </div>
-                <div class="row">
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>or vert</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>or doré</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>or paille</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>or ambré</span>
-                            </label>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="olfactif">
-            <div class="section-title">
-                <h6>Olfactif</h6>
-            </div>
-            <div class="fist-nose">
-                <div class="st">
-                    <p>1er nez (avant aération)</p>
-                </div>
-                <div class="row">
-                    <p>1ère impression (franchise)</p>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>douteuse</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>simple</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>franche</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l3 s3">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>complexe</span>
-                            </label>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <p>Intensité aromatique</p>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>faible</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>modérée</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col l4 s4">
-                        <p>
-                            <label>
-                                <input type="checkbox" class="filled-in" />
-                                <span>puissante</span>
-                            </label>
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <p>Citez deux familles aromatiques :</p>
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea"></textarea>
-                        <label>Par voie directe ou indirecte (rétro-olfaction)</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <p>Citez trois arômes :</p>
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea"></textarea>
-                        <label>Par voie directe ou indirecte (rétro-olfaction)</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </li>
+
+    </ul>
 </div>
 
-<div id="test2" class="col s12">
+<div id="archives" class="col s12">
 
 </div>
 
-<div id="test3" class="col s12">
+<div id="collection" class="col s12">
 
 </div>
 
-<div id="test4" class="col s12">
+<div id="wish" class="col s12">
 
 </div>

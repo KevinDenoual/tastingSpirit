@@ -43,7 +43,7 @@ $noir: #080A09 !default;
 $beige:#E8E6DB !default;
 $jaune: #D6B84D !default; 
 
-$secondary-color: color("teal", "lighten-1") !default;
+$secondary-color: $vert !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;

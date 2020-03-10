@@ -1,1 +1,71 @@
-<h1>Page Admin</h1>
+<div class="container">
+    <h5>Dernier utilisateur</h5>
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <img src="#" alt="" class="circle">
+            <span class="title">Title</span>
+            <p>First Line <br>
+                Second Line
+            </p>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <div id="card-widgets">
+        <div class="row">
+            <div class="col s12 m12 l4">
+                <ul id="task-card" class="collection with-header">
+                    <li class="collection-header cyan">
+                        <h4 class="task-card-title">Todo List</h4>
+                        <p class="task-card-date">March 26, 2015</p>
+                    </li>
+                    <li class="collection-item dismissable"
+                        style="touch-action: pan-y; -webkit-user-drag: none;">
+                        <input type="checkbox" id="task1">
+                        <label for="task1" style="text-decoration: none;">Create Mobile App UI. <a href="#"
+                                class="secondary-content"><span class="ultra-small">Today</span></a>
+                        </label>
+                        <span class="task-cat teal">Mobile App</span>
+                    </li>
+                    <li class="collection-item dismissable"
+                        style="touch-action: pan-y; -webkit-user-drag: none;">
+                        <input type="checkbox" id="task2">
+                        <label for="task2" style="text-decoration: none;">Check the new API standerds. <a href="#"
+                                class="secondary-content"><span class="ultra-small">Monday</span></a>
+                        </label>
+                        <span class="task-cat purple">Web API</span>
+                    </li>
+                    <li class="collection-item dismissable"
+                        style="touch-action: pan-y; -webkit-user-drag: none;">
+                        <input type="checkbox" id="task3" checked="checked">
+                        <label for="task3" style="text-decoration: line-through;">Check the new Mockup of ABC. <a
+                                href="#" class="secondary-content"><span class="ultra-small">Wednesday</span></a>
+                        </label>
+                        <span class="task-cat pink">Mockup</span>
+                    </li>
+                    <li class="collection-item dismissable">
+                        <input type="checkbox" id="task4" checked="checked" disabled="disabled">
+                        <label for="task4" style="text-decoration: line-through;">I did it !</label>
+                        <span class="task-cat cyan">Mobile App</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" href="/admin">
+        <i class="large material-icons">texture</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating red" href="/admin/message"><i class="material-icons">email</i></a></li>
+        <li><a class="btn-floating yellow darken-1" href="/admin/createFiche"><i class="material-icons">edit</i></a></li>
+        <li><a class="btn-floating green" href="/admin/userList"><i class="material-icons">face</i></a></li>
+        {{!-- <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li> --}}
+    </ul>
+</div>
+
+
+

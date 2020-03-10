@@ -8,9 +8,12 @@ const decouvrir = require('./controllers/decouvrir')
 const guide = require('./controllers/guide')
 const rechercher = require('./controllers/rechercher')
 const espacePerso = require('./controllers/profil/espacePerso')
-const admin = require('./controllers/admin/admin')
 const connexion = require('./controllers/connexion')
 const createCompte = require('./controllers/createCompte')
+const admin = require('./controllers/admin/admin')
+const message = require('./controllers/admin/message')
+const createFiche = require('./controllers/admin/createFiche')
+const userList = require('./controllers/admin/userList')
 
 // Home
 router.route('/')
@@ -43,5 +46,17 @@ router.route('/profil/espacePerso')
 // Admin
 router.route('/admin')
     .get(admin.get)
+
+// Message
+router.route('/admin/message')
+    .get(message.get)
+
+// CreateFiche
+router.route('/admin/createFiche')
+    .get(createFiche.get)
+
+// UserList
+router.route('/admin/userList')
+    .get(userList.get)
 
 module.exports = router
