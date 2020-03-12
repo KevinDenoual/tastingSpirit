@@ -1,10 +1,11 @@
 <nav class="nav-extended">
   <div class="nav-wrapper">
     <a href="/" class="brand-logo">Logo</a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/profil/espacePerso">Mon profil</a></li>
-      <li><a href="/connexion">connexion</a></li>
+      <li><a href="/connexion">Connexion</a></li>
+      <li><a href="/deco">Deconnexion</a></li>
       <li><a href="/createCompte">créer un compte</a></li>
       <li><a href="/admin">admin</a></li>
     </ul>
@@ -17,14 +18,20 @@
 
 </nav>
 
-<ul class="sidenav" id="mobile-demo">
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <img src="/assets/images/cigar.jpg">
+      </div>
+      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#name"><span class="white-text name">admin</span></a>
+      <a href="#email"><span class="white-text email">admin@gmail.com</span></a>
+    </div>
+  </li>
   <li><a href="/profil/espacePerso">Mon profil</a></li>
   <li><a href="/connexion">Connexion</a></li>
+  <li><a href="/deco">Deconnexion</a></li>
   <li><a href="/createCompte">créer un compte</a></li>
   <li><a href="/admin">admin</a></li>
 </ul>
-
-
-
-
-</div>

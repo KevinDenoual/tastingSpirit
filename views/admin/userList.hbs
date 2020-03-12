@@ -1,1 +1,93 @@
-<h1>userlist</h1>
+<section>
+    <div>
+        <h3>liste des utilisateurs</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col l12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Vérifié</th>
+                            <th>Bannis</th>
+                        </tr>
+                    </thead>
+
+                    {{#each dbuser }}
+                    <tbody>
+                        <tr>
+                            <td>{{ lastname }}</td>
+                            <td>{{ firstname }}</td>
+                            <td>{{ email }}</td>
+                            <td>{{ isVerified }}</td>
+                            <td>{{ isBan }}</td>
+                            <td><button data-target="modal1{{_id}}" class="btn modal-trigger" type="submit"><i
+                                        class="material-icons">delete</i></button>
+                            </td>
+                            <td><button data-target="modal2{{_id}}" class="btn modal-trigger" type="submit"><i
+                                        class="material-icons">edit</i></button>
+                            </td>
+                        </tr>
+                        <!-- Modal Supprimer -->
+                        <div id="modal1{{_id}}" class="modal">
+                            <div class="modal-content">
+                                <h4>Confirmer la suppression {{ firstname }} {{ lastname }} ?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/admin/userList/{{_id}}/?_method=delete" method="POST">
+                                    <button type="submit"
+                                        class="modal-close waves-effect waves-green btn-flat">oui</button>
+                                </form>
+                                <button type="button" class="modal-close waves-effect waves-green btn-flat">non</button>
+                            </div>
+                        </div>
+                        <!-- Modal Edit -->
+                        <div id="modal2{{_id}}" class="modal">
+
+                            <form action="/admin/userList/{{_id}}/?_method=PUT" method="POST">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <label>Vérifié</label>
+                                        <div class="switch">
+                                            <label>
+                                                false
+                                                <input type="checkbox" name="isVerified" value="{{ isVerified}}" >
+                                                <span class="lever"></span>
+                                                true
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label>Bannis</label>
+                                        <div class="switch">
+                                            <label>
+                                                false
+                                                <input type="checkbox" name="isBan" value="{{ isBan }}">
+                                                <span class="lever"></span>
+                                                true
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit"
+                                        class="modal-close waves-effect waves-green btn-flat">validé</button>
+                                    <button type="button"
+                                        class="modal-close waves-effect waves-green btn-flat">retour</button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        {{/each }}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
