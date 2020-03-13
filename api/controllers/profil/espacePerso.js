@@ -1,12 +1,14 @@
 const degustModel = require('../../database/degustModel')
 
 module.exports = {
-    get: (req, res) => {
-        res.render('profil/espacePerso')
+    get:  async (req, res) => {
+        const dbDegust = await degustModel.find(req.params.id)
+        
+        res.render('profil/espacePerso', { dbDegust } )
     },
 
     post: (req, res) => {
-        // console.log(req.body);
+        console.log(req.body);
         degustModel.create(
             {
                 ...req.body
@@ -16,4 +18,5 @@ module.exports = {
             }
         )
     }
+
 }

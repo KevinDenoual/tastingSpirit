@@ -7,6 +7,8 @@ module.exports = {
 
     postConnexion: async (req, res) => {
         const userAuth = await User.findOne({ email: req.body.email })
+        console.log(userAuth);
+        
         if (!userAuth) {
             res.redirect('/connexion')
         } else {

@@ -23,6 +23,7 @@ router.route('/')
 // Connexion
 router.route('/connexion')
     .get(connexion.get)
+    .post(connexion.postConnexion)
 
 // Deconnexion
 router.route('/deco')
@@ -50,7 +51,7 @@ router.route('/espacePerso')
     .get(espacePerso.get)
     .post(espacePerso.post)
 
-// Admin
+    // Admin
 router.route('/admin')
     .get(admin.get)
 
