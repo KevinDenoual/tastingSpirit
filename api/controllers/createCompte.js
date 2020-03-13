@@ -7,7 +7,6 @@ module.exports = {
 
     postCreateCompte: (req, res) => {
         const Pass = req.body.password
-        console.log(req.body);
         
         userModel.create(
             {

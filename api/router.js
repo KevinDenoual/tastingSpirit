@@ -46,8 +46,9 @@ router.route('/rechercher')
     .get(rechercher.get)
 
 // Profil
-router.route('/profil/espacePerso')
+router.route('/espacePerso')
     .get(espacePerso.get)
+    .post(espacePerso.post)
 
 // Admin
 router.route('/admin')
