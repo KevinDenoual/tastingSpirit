@@ -1,7 +1,7 @@
 const User = require('../database/userModel')
 
 module.exports = {
-    get: (req, res) => {
+    get: async (req, res) => {
         res.render('connexion')
     },
 

@@ -38,7 +38,7 @@
             <div class="collapsible-body">
                 <div class="row">
                     <div class="visu">
-                        <div class="limpidité">
+                        <div class="limpidité" id="limpidité">
                             <div class="st">
                                 <p>Limpidité</p>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="limp-trouble" />
+                                            <input type="checkbox" class="filled-in case" name="limp-trouble" />
                                             <span>trouble</span>
                                         </label>
                                     </p>
@@ -54,7 +54,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="limp-flou" />
+                                            <input type="checkbox" class="filled-in case" name="limp-flou" />
                                             <span>flou</span>
                                         </label>
                                     </p>
@@ -62,7 +62,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="limp-opalescent" />
+                                            <input type="checkbox" class="filled-in case" name="limp-opalescent" />
                                             <span>opalescent</span>
                                         </label>
                                     </p>
@@ -70,7 +70,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="limp-limpide" />
+                                            <input type="checkbox" class="filled-in case" name="limp-limpide" />
                                             <span>limpide</span>
                                         </label>
                                     </p>
@@ -707,5 +707,20 @@
     <div>
         <button class="btn waves-effect waves-light" type="submit">Enregistrer</button>
     </div>
-      
+
 </form>
+
+<script>
+    var otherCheckbox = document.querySelector('input[value="other"]');
+    var otherText = document.querySelector('input[id="otherValue"]');
+    otherText.style.visibility = 'hidden';
+
+    otherCheckbox.onchange = function () {
+        if (otherCheckbox.checked) {
+            otherText.style.visibility = 'visible';
+            otherText.value = '';
+        } else {        
+            otherText.style.visibility = 'hidden';
+        }
+    };
+</script>

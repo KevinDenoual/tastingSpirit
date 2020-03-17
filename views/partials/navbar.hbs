@@ -20,13 +20,13 @@
   <div class="row">
     <a class="waves-effect waves-light btn-small col s4" href="/decouvrir">Découvrir</a>
     <a class="waves-effect waves-light btn-small col s4" href="/guide">Guide Pratique</a>
-    <a class="waves-effect waves-light btn-small col s4" href="/rechercher">Rechercher</a>
+    <a class="waves-effect waves-light btn-small col s4" href="/rechercher">  <i class="tiny material-icons">search</i></a>
   </div>
 
 </nav>
 
 <ul id="slide-out" class="sidenav">
-  {{#if user}}
+  {{#if user }}
   <li>
     <div class="user-view">
       <div class="background">
@@ -34,7 +34,7 @@
       </div>
       <a href="#user"><img class="circle" src="{{ dbUser.image}}"></a>
       <a href="#name"><span class="white-text name">admin</span></a>
-      <a href="#email"><span class="white-text email">admin@gmail.com</span></a>
+      <a href="#email"><span class="white-text email">admin@admin.admin</span></a>
     </div>
   </li>
   {{else}}
