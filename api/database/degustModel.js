@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
     // =============== VISUEL ===============
 
     // Limpidite
-    'limp-trouble': String,
-    'limp-flou': String,
-    'limp-opalescent': String,
-    'limp-limpide': String,
+    limpidite: {
+        type: Array 
+    },
+  
     // Brillance
     'brillance-terne': String,
     'brillance-lumineuse': String,
