@@ -24,30 +24,23 @@ const userSchema = new mongoose.Schema({
 
     
     visuel: {
-        type: Array 
-    },
+            "limpidite": {
+                type: Object
+            },
+            "brillance": {
+                type: Object
+            },
+            "intensite": {
+                type: Object
+            },
+            "capillarite": {
+                type: Object
+            },
+            "couleur": {
+                type: Object
+            }
+    }, 
 
-    limpidite: {
-        type: Object 
-    },
-  
-    // Brillance
-    brillance: {
-        type: Object
-    },
-    // Intensite
-    intensite: {
-        type: Array
-    },
-    // Capillarite
-    capillarite: {
-        type: Array
-    },
-    // Couleurs
-    couleur: {
-        type: Array
-    },
-    
     // =============== OLFACTIF ===============
 
     // 1er nez (avant aération)
