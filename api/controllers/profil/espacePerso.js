@@ -76,13 +76,183 @@ module.exports = {
             capillarite: capillarite,
             couleur: couleur
           }
+        // console.log(visuel);
+    // *********************** OLFACTIF ***********************
+        // 1er nez
+        const douteuse = (req.body.douteuse == 'true' || false)
+        const simple = (req.body.simple == 'true' || false)
+        const franche = (req.body.franche == 'true' || false)
+        const complexe = (req.body.complexe == 'true' || false)
+        const faible = (req.body.faible == 'true' || false)
+        const moderee = (req.body.moderee == 'true' || false)
+        const puissante = (req.body.puissante == 'true' || false)
+        const textfamille = req.body.textfamille
+        const textaromes = req.body.textaromes 
+        const firstnose = {
+            douteuse: douteuse,
+            simple: simple,
+            franche: franche,
+            complexe: complexe,
+            faible: faible,
+            moderee: moderee,
+            puissante: puissante,
+            textfamille: textfamille,
+            textaromes: textaromes,
+          }
+
+        // 2eme nez
+        const textfamillebis = req.body.textfamillebis
+        const textaromesbis = req.body.textaromesbis
+        const secondnose = {
+            extfamillebis: textfamillebis,
+            textaromesbis: textaromesbis
+          }
+
+        const olfactif = {
+            firstnose: firstnose,
+            secondnose: secondnose 
+          }
+        //   console.log(olfactif);
+    // *********************** GUSTATIF ***********************
+        // Attaque
+        const attfaible = (req.body.attfaible == 'true' || false)
+        const ample = (req.body.ample == 'true' || false)
+        const attfranche = (req.body.attfranche == 'true' || false)
+        const attpuissante = (req.body.attpuissante == 'true' || false)
+        const attaque = {
+            attfaible: attfaible,
+            ample: ample,
+            attfranche: attfranche,
+            attpuissante: attpuissante
+          }
+
+         // Acidite
+         const molle = (req.body.molle == 'true' || false)
+         const fraiche = (req.body.fraiche == 'true' || false)
+         const vive = (req.body.vive == 'true' || false)
+         const nerveuse = (req.body.nerveuse == 'true' || false)
+         const acidite = {
+            molle: molle,
+            fraiche: fraiche,
+            vive: vive,
+            nerveuse: nerveuse
+           }
+
+        // moelleux
+        const sec = (req.body.sec == 'true' || false)
+        const tendre = (req.body.tendre == 'true' || false)
+        const gras = (req.body.gras == 'true' || false)
+        const capiteux = (req.body.capiteux == 'true' || false)
+        const lourd = (req.body.lourd == 'true' || false)
+        const moelleux = {
+            sec: sec,
+            tendre: tendre,
+            gras: gras,
+            capiteux: capiteux,
+            lourd: lourd
+          }
+
+        // Sale
+        const absent = (req.body.absent == 'true' || false)
+        const iode = (req.body.iode == 'true' || false)
+        const algal = (req.body.algal == 'true' || false)
+        const sale = {
+            absent: absent,
+            iode: iode,
+            algal: algal
+          }
+
+        // Aromes
+        const textarometerce = req.body.textarometerce
+        const arome = {
+            textarometerce: textarometerce
+        }
         
-        console.log(visuel);
+        // Finale
+        const courte = (req.body.courte == 'true' || false)
+        const moyenne = (req.body.moyenne == 'true' || false)
+        const longue = (req.body.longue == 'true' || false)
+        const persistante = (req.body.persistante == 'true' || false)
+        const finale = {
+            courte: courte,
+            moyenne: moyenne,
+            longue: longue,
+            persistante: persistante
+           }
+
+        const gustatif = {
+            attaque: attaque,
+            acidite: acidite,
+            moelleux: moelleux,
+            sale: sale,
+            arome: arome,
+            finale: finale
+          }
+          console.log(gustatif);
+          
+    // *********************** CONCLUSION ***********************
+        // Qualite
+        const qltfaible = (req.body.qltfaible == 'true' || false)
+        const acceptable = (req.body.acceptable == 'true' || false)
+        const bonne = (req.body.bonne == 'true' || false)
+        const excellente = (req.body.excellente == 'true' || false)
+        const qualite = {
+            qltfaible: qltfaible,
+            acceptable: acceptable,
+            bonne: bonne,
+            excellente: excellente
+           }
+
+        // moment
+        const aperitif = (req.body.aperitif == 'true' || false)
+        const repas = (req.body.repas == 'true' || false)
+        const digestif = (req.body.digestif == 'true' || false)
+        const moment = {
+            aperitif: aperitif,
+            repas: repas,
+            digestif: digestif,
+           }
+
+        // Aromes
+        const textassociation = req.body.textassociation
+        const association = {
+            textassociation: textassociation
+        }
+
+        // Prix
+        const inftrente = (req.body.inftrente == 'true' || false)
+        const trentecinquante = (req.body.trentecinquante == 'true' || false)
+        const cinquantesoixantedix = (req.body.cinquantesoixantedix == 'true' || false)
+        const soixantedixplus = (req.body.soixantedixplus == 'true' || false)
+        const prix = {
+            inftrente: inftrente,
+            trentecinquante: trentecinquante,
+            cinquantesoixantedix: cinquantesoixantedix,
+            soixantedixplus: soixantedixplus
+           }
+
+        // Note
+        const valeurnote = req.body.valeurnote
+        const note = {
+            valeurnote: valeurnote
+        }
+
+        const conclusion = {
+            qualite: qualite,
+            moment: moment,
+            association: association,
+            prix: prix,
+            note: note
+          }
+
+        console.log(conclusion);
         
         degustModel.create(
             {
-                ...req.body,
-                visuel: visuel
+                visuel: visuel,
+                olfactif: olfactif,
+                gustatif: gustatif,
+                conclusion: conclusion
             },
             (err) => {
                 res.redirect('/espacePerso')
