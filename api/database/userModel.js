@@ -6,31 +6,33 @@ const userSchema = new mongoose.Schema({
 
     firstname: {
         type: String,
-        required: true,
     },
+    
     lastname: {
         type: String,
-        required: true,
+        
     },
+
     email: {
-        type: String,
-        required: true,
+        type: String,  
         unique: true,
     },
+
     password: {
         type: String,
-        required: true,
+        
     },
+
     status: {
         type: String,
         default: 'user'
     },
+
     isVerified:{
         type: Boolean,
         default: false
     },
-
-    
+  
     isAdmin: {
         type: Boolean,
         default: false,

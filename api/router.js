@@ -15,7 +15,7 @@ const admin = require('./controllers/admin/admin')
 const message = require('./controllers/admin/message')
 const createFiche = require('./controllers/admin/createFiche')
 const userList = require('./controllers/admin/userList')
-
+const verifMail = require ('./controllers/verifMail')
 // Home
 router.route('/')
     .get(home.get)
@@ -29,10 +29,17 @@ router.route('/connexion')
 router.route('/deco')
     .get(deco.get)
 
+//********* Signup ***********//
 // Creation de compte
 router.route('/createCompte')
     .get(createCompte.get)
     .post(createCompte.postCreateCompte)
+// Nodemailer verif 
+router.route('/verify/:id')
+    .get(createCompte.verifMail)
+// VerifMail
+router.route('/verifMail')
+    .get(verifMail.get)
 
 // Decouvrir
 router.route('/decouvrir')
