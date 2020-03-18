@@ -22,14 +22,18 @@ const userSchema = new mongoose.Schema({
 
     // =============== VISUEL ===============
 
-    // Limpidite
-    limpidite: {
+    
+    visuel: {
         type: Array 
+    },
+
+    limpidite: {
+        type: Object 
     },
   
     // Brillance
     brillance: {
-        type: Array
+        type: Object
     },
     // Intensite
     intensite: {

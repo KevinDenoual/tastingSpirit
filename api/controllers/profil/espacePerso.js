@@ -5,6 +5,8 @@ module.exports = {
         const dbDegust = await degustModel.find(req.params.id)
         
         res.render('profil/espacePerso', { dbDegust } )
+        console.log(dbDegust);
+        
     },
 
     post: (req, res) => {
