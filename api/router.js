@@ -58,17 +58,20 @@ router.route('/espacePerso')
     .get(espacePerso.get)
     .post(espacePerso.post)
 
-    // Admin
+// Admin
 router.route('/admin')
     .get(admin.get)
 
 // Message
 router.route('/admin/message')
     .get(message.get)
+    .post(message.post)
+    .delete(message.delete)
 
 // CreateFiche
 router.route('/admin/createFiche')
     .get(createFiche.get)
+    .post(createFiche.postFiche)
 
 // UserList
 router.route('/admin/userList')

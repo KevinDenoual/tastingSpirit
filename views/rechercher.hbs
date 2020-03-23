@@ -27,3 +27,61 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col l12 s12">
+      <ul>
+        {{#each dbFiche}}
+        <li>
+          <a href="#modal1{{_id}}" class="modal-trigger">
+            <p>noms: {{ whiskyName}} Typicité: {{ type }} pays: {{ origine }} </p>
+          </a>
+        </li>
+
+        <!-- Modal voir -->
+        <div id="modal1{{_id}}" class="modal">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col l4 s4">
+                <p>{{ whiskyName }}</p>
+              </div>
+              <div class="col l8 s8" style="width: 200px; height: 200px">
+                <img src="" alt="">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s4">
+                <p>{{ distillerie }} </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s4">
+                <p>{{ type }} </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s4">
+                <p>{{ origine }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l4 s4">
+                <p>{{ finition }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col l2 s2">
+                <p>{{ titre }}</p>
+              </div>
+              <div class="col l2 s2">
+                <p>{{ prix }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

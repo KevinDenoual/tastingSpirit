@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const handlebars = require('handlebars');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+const helpers = require('handlebars-helpers')();
 
 const app = express()
 const port = 3000
@@ -58,6 +59,7 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');
+
 
 // Router
 const router = require('./api/router')

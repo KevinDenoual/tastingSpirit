@@ -1,4 +1,4 @@
-<form action="/espacePerso" method="POST">
+<form action="/espacePerso" method="POST" enctype="application/x-www-form-urlencoded">
     {{!-- =============== EN-TETE ===============--}}
 
     <div class="degust-title">
@@ -6,23 +6,23 @@
     </div>
 
     <div class="head-taste">
-        <div class="row">
+        <div class="row" id="head">
             <div class="input-field col s6">
                 <input type="text" name="whiskyName">
-                <label class="active" for="whiskyName">Whisky</label>
+                <label class="active" for="whiskyName" value="string">Whisky</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="lieu">
-                <label class="active" for="lieu">Lieu</label>
+                <input type="text" name="lieu" >
+                <label class="active" for="lieu" value="string">Lieu</label>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" name="origine">
-                    <label class="active" for="origine">Origine</label>
+                    <input type="text" name="origine" >
+                    <label class="active" for="origine" value="string">Origine</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="date" name="date">
-                    <label class="active" for="date">Date</label>
+                    <input type="date" name="date" >
+                    <label class="active" for="date" value="string">Date</label>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
 
     <ul class="collapsible">
         <li>
-            <div class="collapsible-header section-title" id="visuel">
+            <div class="collapsible-header section-title">
                 <h6>Visuel</h6>
             </div>
             <div class="collapsible-body">
@@ -46,7 +46,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in case" name="trouble" value="true" />
+                                            <input type="checkbox" class="filled-in case" name="limpidite" value="trouble" />
                                             <span>trouble</span>
                                         </label>
                                     </p>
@@ -54,7 +54,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in case" name="flou" value="true" />
+                                            <input type="checkbox" class="filled-in case" name="limpidite" value="flou" />
                                             <span>flou</span>
                                         </label>
                                     </p>
@@ -62,7 +62,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in case" name="opalescent" value="true" />
+                                            <input type="checkbox" class="filled-in case" name="limpidite" value="opalescent" />
                                             <span>opalescent</span>
                                         </label>
                                     </p>
@@ -70,7 +70,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in case" name="limpide" value="true" />
+                                            <input type="checkbox" class="filled-in case" name="limpidite" value="limpide" />
                                             <span>limpide</span>
                                         </label>
                                     </p>
@@ -85,7 +85,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="terne" value="true" />
+                                            <input type="checkbox" class="filled-in" name="brillance" value="terne"  />
                                             <span>terne</span>
                                         </label>
                                     </p>
@@ -93,7 +93,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="lumineuse" value="true"/>
+                                            <input type="checkbox" class="filled-in" name="brillance" value="lumineuse" />
                                             <span>lumineuse</span>
                                         </label>
                                     </p>
@@ -101,7 +101,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="eclatante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="brillance" value="eclatante"  />
                                             <span>éclatante</span>
                                         </label>
                                     </p>
@@ -116,7 +116,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="pale" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensite" value="pale" />
                                             <span>pâle</span>
                                         </label>
                                     </p>
@@ -124,7 +124,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="claire" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensite" value="claire" />
                                             <span>claire</span>
                                         </label>
                                     </p>
@@ -132,7 +132,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="soutenue" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensite" value="soutenue" />
                                             <span>soutenue</span>
                                         </label>
                                     </p>
@@ -147,7 +147,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="coulante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="capillarite" value="coulante" />
                                             <span>coulante</span>
                                         </label>
                                     </p>
@@ -155,7 +155,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="epaisse" value="true" />
+                                            <input type="checkbox" class="filled-in" name="capillarite" value="epaisse" />
                                             <span>épaisse</span>
                                         </label>
                                     </p>
@@ -163,7 +163,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="grasse" value="true" />
+                                            <input type="checkbox" class="filled-in" name="capillarite" value="grasse" />
                                             <span>grasse</span>
                                         </label>
                                     </p>
@@ -171,7 +171,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="visqueuse" value="true" />
+                                            <input type="checkbox" class="filled-in" name="capillarite" value="visqueuse" />
                                             <span>visqueuse</span>
                                         </label>
                                     </p>
@@ -186,7 +186,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="vert" value="true" />
+                                            <input type="checkbox" class="filled-in" name="couleur" value="vert" />
                                             <span>or vert</span>
                                         </label>
                                     </p>
@@ -194,7 +194,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="doré" value="true" />
+                                            <input type="checkbox" class="filled-in" name="couleur" value="dore" />
                                             <span>or doré</span>
                                         </label>
                                     </p>
@@ -202,7 +202,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="paille" value="true"/>
+                                            <input type="checkbox" class="filled-in" name="couleur" value="paille"/>
                                             <span>or paille</span>
                                         </label>
                                     </p>
@@ -210,7 +210,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="ambre" value="true"/>
+                                            <input type="checkbox" class="filled-in" name="couleur" value="ambre"/>
                                             <span>or ambré</span>
                                         </label>
                                     </p>
@@ -236,12 +236,12 @@
                             <div class="st">
                                 <p>1er nez (avant aération)</p>
                             </div>
-                            <div class="row bg-beige">
+                            <div class="row bg-beige franchise" id="franchise">
                                 <p>1ère impression (franchise)</p>
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="douteuse" value="true" />
+                                            <input type="checkbox" class="filled-in" name="franchise" value="douteuse" />
                                             <span>douteuse</span>
                                         </label>
                                     </p>
@@ -249,7 +249,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="simple" value="true" />
+                                            <input type="checkbox" class="filled-in" name="franchise" value="simple" />
                                             <span>simple</span>
                                         </label>
                                     </p>
@@ -257,7 +257,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="franche" value="true" />
+                                            <input type="checkbox" class="filled-in" name="franchise" value="franche" />
                                             <span>franche</span>
                                         </label>
                                     </p>
@@ -265,18 +265,18 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="complexe" value="true" />
+                                            <input type="checkbox" class="filled-in" name="franchise" value="complexe" />
                                             <span>complexe</span>
                                         </label>
                                     </p>
                                 </div>
                             </div>
-                            <div class="row bg-beige">
+                            <div class="row bg-beige intensiteOl" id="intensiteOl">
                                 <p>Intensité aromatique</p>
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="faible" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensiteOl" value="faible" />
                                             <span>faible</span>
                                         </label>
                                     </p>
@@ -284,7 +284,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="moderee" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensiteOl" value="moderee" />
                                             <span>modérée</span>
                                         </label>
                                     </p>
@@ -292,7 +292,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="puissante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="intensiteOl" value="puissante" />
                                             <span>puissante</span>
                                         </label>
                                     </p>
@@ -301,7 +301,7 @@
                             <div class="row bg-beige">
                                 <p>Citez deux familles aromatiques :</p>
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" type="text" name="textfamille" value="string"
+                                    <textarea class="materialize-textarea" type="text" name="textfamille" value="textfamille"
                                         placeholder="Par voie directe ou indirecte (rétro-olfaction)"></textarea>
 
                                 </div>
@@ -309,7 +309,7 @@
                             <div class="row bg-beige">
                                 <p>Citez trois arômes :</p>
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" type="text" name="textaromes" value="string"
+                                    <textarea class="materialize-textarea" type="text" name="textaromes" value="textaromes"
                                         placeholder="Par voie directe ou indirecte (rétro-olfaction)"></textarea>
                                 </div>
                             </div>
@@ -321,14 +321,14 @@
                             <div class="row bg-beige">
                                 <p>Citez deux familles aromatiques :</p>
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" type="text" name="textfamillebis" value="string"
+                                    <textarea class="materialize-textarea" type="text" name="textfamillebis" value="textfamillebis"
                                         placeholder="Par voie directe ou indirecte (rétro-olfaction)"></textarea>
                                 </div>
                             </div>
                             <div class="row bg-beige">
                                 <p>Citez trois arômes :</p>
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" type="text" name="textaromesbis" value="string"
+                                    <textarea class="materialize-textarea" type="text" name="textaromesbis" value="textaromesbis"
                                         placeholder="Par voie directe ou indirecte (rétro-olfaction)"></textarea>
                                 </div>
                             </div>
@@ -356,7 +356,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="attfaible" value="true" />
+                                            <input type="checkbox" class="filled-in" name="attaque" value="faible" />
                                             <span>faible</span>
                                         </label>
                                     </p>
@@ -364,7 +364,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="ample" value="true" />
+                                            <input type="checkbox" class="filled-in" name="attaque" value="ample" />
                                             <span>ample</span>
                                         </label>
                                     </p>
@@ -372,7 +372,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="attfranche" value="true" />
+                                            <input type="checkbox" class="filled-in" name="attaque" value="attfranche" />
                                             <span>franche</span>
                                         </label>
                                     </p>
@@ -380,7 +380,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="attpuissante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="attaque" value="attpuissante" />
                                             <span>puissante</span>
                                         </label>
                                     </p>
@@ -395,7 +395,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="molle" value="true" />
+                                            <input type="checkbox" class="filled-in" name="acidite" value="molle" />
                                             <span>molle</span>
                                         </label>
                                     </p>
@@ -403,7 +403,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="fraiche" value="true" />
+                                            <input type="checkbox" class="filled-in" name="acidite" value="fraiche" />
                                             <span>fraîche</span>
                                         </label>
                                     </p>
@@ -411,7 +411,7 @@
                                 <div class="col l3 s2">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="vive" value="true" />
+                                            <input type="checkbox" class="filled-in" name="acidite" value="vive" />
                                             <span>vive</span>
                                         </label>
                                     </p>
@@ -419,7 +419,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="nerveuse" value="true" />
+                                            <input type="checkbox" class="filled-in" name="acidite" value="nerveuse" />
                                             <span>nerveuse</span>
                                         </label>
                                     </p>
@@ -434,7 +434,7 @@
                                 <div class="col l2 s2">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="sec" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moelleux" value="sec" />
                                             <span>sec</span>
                                         </label>
                                     </p>
@@ -442,7 +442,7 @@
                                 <div class="col l2 s2">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="tendre" value="true"/>
+                                            <input type="checkbox" class="filled-in" name="moelleux" value="tendre"/>
                                             <span>tendre</span>
                                         </label>
                                     </p>
@@ -450,7 +450,7 @@
                                 <div class="col l2 s2">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="gras" value="true"/>
+                                            <input type="checkbox" class="filled-in" name="moelleux" value="gras"/>
                                             <span>gras</span>
                                         </label>
                                     </p>
@@ -458,7 +458,7 @@
                                 <div class="col l2 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="capiteux" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moelleux" value="capiteux" />
                                             <span>capiteux</span>
                                         </label>
                                     </p>
@@ -466,7 +466,7 @@
                                 <div class="col l2 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="lourd" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moelleux" value="lourd" />
                                             <span>lourd</span>
                                         </label>
                                     </p>
@@ -481,7 +481,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="absent" value="true" />
+                                            <input type="checkbox" class="filled-in" name="sale" value="absent" />
                                             <span>absent</span>
                                         </label>
                                     </p>
@@ -489,7 +489,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="iode" value="true" />
+                                            <input type="checkbox" class="filled-in" name="sale" value="iode" />
                                             <span>iodé/marin</span>
                                         </label>
                                     </p>
@@ -497,7 +497,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="algal" value="true" />
+                                            <input type="checkbox" class="filled-in" name="sale" value="algal" />
                                             <span>algal</span>
                                         </label>
                                     </p>
@@ -511,7 +511,7 @@
                             <div class="row bg-beige">
                                 <div class="input-field col s12">
                                     <textarea class="materialize-textarea" placeholder="Par rétro-olfaction" type="text"
-                                        name="textarometerce" value="string"></textarea>
+                                        name="arome" value="textarometerce"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -523,7 +523,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="courte" value="true" />
+                                            <input type="checkbox" class="filled-in" name="finale" value="courte" />
                                             <span>courte</span>
                                         </label>
                                     </p>
@@ -531,7 +531,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="moyenne" value="true" />
+                                            <input type="checkbox" class="filled-in" name="finale" value="moyenne" />
                                             <span>moyenne</span>
                                         </label>
                                     </p>
@@ -539,7 +539,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="longue" value="true" />
+                                            <input type="checkbox" class="filled-in" name="finale" value="longue" />
                                             <span>longue</span>
                                         </label>
                                     </p>
@@ -547,7 +547,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="persistante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="finale" value="persistante" />
                                             <span>persistante</span>
                                         </label>
                                     </p>
@@ -577,7 +577,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="faible" value="true" />
+                                            <input type="checkbox" class="filled-in" name="qualite" value="faible" />
                                             <span>faible</span>
                                         </label>
                                     </p>
@@ -585,7 +585,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="acceptable" value="true" />
+                                            <input type="checkbox" class="filled-in" name="qualite" value="acceptable" />
                                             <span>acceptable</span>
                                         </label>
                                     </p>
@@ -593,7 +593,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="bonne" value="true" />
+                                            <input type="checkbox" class="filled-in" name="qualite" value="bonne" />
                                             <span>bonne</span>
                                         </label>
                                     </p>
@@ -601,7 +601,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="excellente" value="true" />
+                                            <input type="checkbox" class="filled-in" name="qualite" value="excellente" />
                                             <span>excellente</span>
                                         </label>
                                     </p>
@@ -616,7 +616,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="aperitif" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moment" value="aperitif" />
                                             <span>apéritif</span>
                                         </label>
                                     </p>
@@ -624,7 +624,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="repas" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moment" value="repas" />
                                             <span>repas</span>
                                         </label>
                                     </p>
@@ -632,7 +632,7 @@
                                 <div class="col l4 s4">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="digestif" value="true" />
+                                            <input type="checkbox" class="filled-in" name="moment" value="digestif" />
                                             <span>digestif</span>
                                         </label>
                                     </p>
@@ -645,7 +645,7 @@
                             </div>
                             <div class="row bg-beige">
                                 <div class="input-field col s12">
-                                    <textarea class="materialize-textarea" type="text" name="textassociation" value="string"></textarea>
+                                    <textarea class="materialize-textarea" type="text" name="association" value="textassociation"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -657,7 +657,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="inftrente" value="true" />
+                                            <input type="checkbox" class="filled-in" name="prix" value="inftrente" />
                                             <span>Inférieur à 30€</span>
                                         </label>
                                     </p>
@@ -665,7 +665,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="trentecinquante" value="true" />
+                                            <input type="checkbox" class="filled-in" name="prix" value="trentecinquante" />
                                             <span>Entre 30€ et 50€</span>
                                         </label>
                                     </p>
@@ -673,7 +673,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="cinquantesoixantedix" value="true" />
+                                            <input type="checkbox" class="filled-in" name="prix" value="cinquantesoixantedix" />
                                             <span>Entre 50€ et 70€</span>
                                         </label>
                                     </p>
@@ -681,7 +681,7 @@
                                 <div class="col l3 s3">
                                     <p>
                                         <label>
-                                            <input type="checkbox" class="filled-in" name="soixantedixplus" value="true" />
+                                            <input type="checkbox" class="filled-in" name="prix" value="soixantedixplus" />
                                             <span>Supérieur à 70€</span>
                                         </label>
                                     </p>
@@ -694,7 +694,7 @@
                             </div>
                             <div class="row bg-beige">
                                 <div class="input-field col s4">
-                                    <textarea class="materialize-textarea" type="number" name="valeurnote" value="number"></textarea>
+                                    <textarea class="materialize-textarea" type="number" name="note" value="valeurnote"></textarea>
                                 </div>
                             </div>
                         </div>

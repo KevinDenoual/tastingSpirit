@@ -1,5 +1,10 @@
+const ficheModel = require('../database/ficheModel')
+
 module.exports = {
-    get: (req, res) => {
-        res.render('rechercher')
-    }
+    get: async (req, res) => {
+        const dbFiche = await ficheModel.find(req.params.id)
+        res.render('rechercher', { dbFiche })
+    }, 
+
+    
 }

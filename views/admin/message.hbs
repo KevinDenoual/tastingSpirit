@@ -1,59 +1,41 @@
-<div>
-    <h3>Tickets Messages</h3>
-</div>
 <div class="container">
     <div class="row">
-
-        <!-- GET -->
         <div class="col l12 s12">
-            <ul class="list-group ">
-                {{#each dbMontact }}
+            <h3>Messages</h3>
+        </div>
+    </div>
+
+    {{!-- GET --}}
+    <div class="row">
+        <div class="col l12 s12">
+            <ul>
+                {{#each dbMessage }}
                 <li>
-                    <div class="row">
-                        <div class="col l12">
-                            <p>{{ email }} </p>
-                            <p>message : {{ message }} </p>
-
-                            <!-- BOUTTON SUPPRIMER -->
-                            <button class="btn btn-actu" data-toggle="modal" type="subit"
-                                data-target="#modalConfirmSuppContact{{ _id }}">Supprimer</button>
-                        </div>
-
+                    <p>{{ email }} </p>
+                    <p>{{ message }}</p>
+                    <button data-target="modal1{{_id}}" class="btn modal-trigger" type="submit"> <i
+                            class="material-icons">delete</i></button>
                 </li>
                 {{!-- modal confirmation suppression --}}
-                <div class="modal fade" id="modalConfirmSuppContact{{ _id }}" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                <div id="modal1{{_id}}" class="modal">
+                    <div class="modal-content">
+                        <p>La vérité t'es sur de vouloir supprimer ? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col l3 s3">
+                                <form action="/admin/message/{{_id}}/?_method=DELETE" method="POST">
+                            <button type="submit" class="btn">Oui</button>
+                        </form>
                             </div>
-                            <div class="modal-body">
-                                <p>Confirmez-vous la suppression ?</p>
+                            <div class="col l3 s3">
+                                <button type="button" class="btn">Non</button>
                             </div>
-                            <div class="modal-footer">
-
-                                <form action="/ticketAdmin/{{ _id }}/?_method=DELETE" method="post">
-                                    <button type="submit" class="btn btn-sign">Oui</button>
-                                </form>
-
-
-                                <button type="button" class="btn btn-sign">Non</button>
-                            </div>
-                        </div>
+                        </div>                      
                     </div>
                 </div>
                 {{/each }}
             </ul>
         </div>
-
     </div>
 </div>
-
-
-<style>
-    li {
-        list-style: none;
-    }
-</style>
