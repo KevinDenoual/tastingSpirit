@@ -6,10 +6,38 @@
             <div class="row">
                 <div class="col l12 s12">
                     {{ head.whiskyName }} dégusté le : {{ head.date }} à {{ head.lieu }}
+                    <!-- Modal Trigger -->
                     <button data-target="modal1{{_id}}" class="btn modal-trigger" type="submit">voir</button>
+                    <button data-target="modal2{{_id}}" class="btn modal-trigger" type="submit"><i
+                            class="material-icons">delete</i></button>
                 </div>
             </div>
         </li>
+
+        <!-- Modal Supprimer -->
+        <div id="modal2{{_id}}" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <h4>Confirmer la suppression ?</h4>
+                        <div class="row">
+                            <div class="col l1 s1">
+                                <form action="/espacePerso/{{_id}}/?_method=delete" method="POST">
+                                    <button type="submit"
+                                        class="modal-close waves-effect waves-green btn-flat">oui</button>
+                                </form>
+                            </div>
+                            <div class="col l1 s1">
+                                <button type="button" class="modal-close waves-effect waves-green btn-flat">non</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
 
         <!-- Modal voir -->
         <div id="modal1{{_id}}" class="modal">
@@ -266,7 +294,7 @@
                                         </div>
                                         <div class="row bg-beige">
                                             <div class="input-field col s12">
-                                               <p>{{ conclusion.association}} </p>
+                                                <p>{{ conclusion.association}} </p>
                                             </div>
                                         </div>
                                     </div>

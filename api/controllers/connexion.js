@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     get: async (req, res) => {
-        res.render('connexion')
+        res.render('Co&password/connexion')
     },
 
     postConnexion: async (req, res) => {
@@ -18,8 +18,8 @@ module.exports = {
 
             User.findOne({email}, (err, User) => {
                 sess.userId           = User.id
-                sess.firstname        = sess.firstname
-                sess.lastname         = sess.lastname
+                sess.firstname        = User.firstname
+                sess.lastname         = User.lastname
                 sess.email            = User.email
                 sess.status           = User.status
                 sess.isVerified       = User.isVerified

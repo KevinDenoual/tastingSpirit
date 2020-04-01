@@ -1,5 +1,8 @@
+const userModel = require('../../database/userModel')
+
 module.exports = {
-    get: (req, res) => {
-        res.render('admin/admin')
+    get: async (req, res) => {
+        const dbUser = await userModel.find({})
+        res.render('admin/admin', { dbUser } )
     }
 }

@@ -25,7 +25,8 @@ module.exports = {
                 origine: origine,
                 finition: finition,
                 titre: titre,
-                prix: prix
+                prix: prix,
+                imgFiche: `/assets/images/${req.file.originalname}`, 
             },
             (err) => { 
                 if (err) console.log(err)

@@ -24,7 +24,7 @@ const ficheSchema = new mongoose.Schema({
     prix: {
         type: Number
     },
-    image: {
+    imgFiche: {
         type: String
     }
 })

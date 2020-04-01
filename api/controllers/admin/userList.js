@@ -8,27 +8,6 @@ module.exports = {
         
     },
 
-    putListUser: (req, res) => {
-        const query = { _id: req.params.id }
-        console.log(req.body.isVerified);
-        
-        userModel.findOneAndUpdate(
-            query,
-            {
-                isVerified: req.body.isVerified,
-                isBan: req.body.isBan
-            },
-
-            (err) => {
-                if (!err) {
-                    res.redirect('/admin/userList')
-                } else {
-                    res.render(err)
-                }
-            }
-        )
-    },
-
     deleteOne: (req, res) => {
         const query = { _id: req.params.id }
         
@@ -41,5 +20,61 @@ module.exports = {
                     res.render(err)
                 }
             })
+    },
+
+    modifStatus: (req, res) => {
+        const query = { _id: req.params.id }
+        const verifTrue = (req.body.verifTrue == 'true' || false)
+        const banTrue = (req.body.banTrue == 'true' || false)
+
+        console.log(verifTrue);
+        console.log(banTrue);
+        
+    
+                    
+        //     if  ( verifTrue === 'true' ) {
+        //         userModel.findByIdAndUpdate(
+        //         query,
+        //         {
+        //             isVerified: 'true'
+        //         },
+        //         (err) => {
+        //             if (!err) {
+        //                 res.redirect('/admin/userList')
+        //             } else {
+        //                 res.render(err)
+        //             }
+        //         }
+        //     )
+        // } else if ( verifTrue === false ) {
+        //          userModel.findByIdAndUpdate(
+        //              query,
+        //             {
+        //                 isVerified: false
+        //             },
+        //             (err) => {
+        //                 if (!err) {
+        //                     res.redirect('/admin/userList')
+        //                 } else {
+        //                     res.render(err)
+        //                 }
+        //             }
+        //         )
+        // } else if ( banTrue === 'true' ) {
+        //     userModel.findByIdAndUpdate(
+        //         query,
+        //        {
+        //            isBan: true
+        //        },
+        //        (err) => {
+        //            if (!err) {
+        //                res.redirect('/admin/userList')
+        //            } else {
+        //                res.render(err)
+        //            }
+        //        }
+        //    )
+        // }
+            
     }
 }

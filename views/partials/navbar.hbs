@@ -3,24 +3,25 @@
     <a href="/" class="brand-logo">Logo</a>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {{#if user }}
       <li><a href="/espacePerso">Mon profil</a></li>
+      <li><a href="/deco">Deconnexion</a></li>
+      {{ else }}
+      {{/if }}
+
       {{#if user}}
       {{else}}
       <li><a href="/connexion">Connexion</a></li>
-      {{/if}}
-      {{#if user}}
-      <li><a href="/deco">Deconnexion</a></li>
-      {{/if}}
+      {{/if }}
+
       <li><a href="/createCompte">créer un compte</a></li>
-      {{#if isAdmin}}
-      <li><a href="/admin">admin</a></li>
-      {{/if}}
     </ul>
   </div>
   <div class="row">
     <a class="waves-effect waves-light btn-small col s4" href="/decouvrir">Découvrir</a>
     <a class="waves-effect waves-light btn-small col s4" href="/guide">Guide Pratique</a>
-    <a class="waves-effect waves-light btn-small col s4" href="/rechercher">  <i class="tiny material-icons">search</i></a>
+    <a class="waves-effect waves-light btn-small col s4" href="/rechercher"> <i
+        class="tiny material-icons">search</i></a>
   </div>
 
 </nav>
@@ -32,23 +33,56 @@
       <div class="background">
         <img src="/assets/images/strathisla.jpg" width="100%">
       </div>
-      <a href="#user"><img class="circle" src="{{ dbUser.image}}"></a>
-      <a href="#name"><span class="white-text name">admin</span></a>
-      <a href="#email"><span class="white-text email">admin@admin.admin</span></a>
+      <!-- Modal Trigger -->
+      <a href="#modal1"><img class="circle" value="{{ imgUser }}"></a>
+      <!------------------->
+      <a href="#name"><span class="white-text name">{{ firstname }} {{ lastname }} </span></a>
+      <p><span class="white-text email">{{ email }} coucou</span></p>
     </div>
   </li>
+  <li><a href="/espacePerso">Mon profil</a></li>
+  <li><a href="/deco">Deconnexion</a></li>
   {{else}}
   {{/if}}
-  <li><a href="/espacePerso">Mon profil</a></li>
+
   {{#if user}}
   {{else}}
   <li><a href="/connexion">Connexion</a></li>
   {{/if}}
-  {{#if user}}
-  <li><a href="/deco">Deconnexion</a></li>
-  {{/if}}
+
   <li><a href="/createCompte">créer un compte</a></li>
-  {{#if isAdmin}}
-  <li><a href="/admin">admin</a></li>
-  {{/if}}
 </ul>
+
+<!-- Modal Structure -->
+{{!-- <div id="modal1" class="modal">
+  <div class="modal-content">
+    <div class="row">
+      <div class="col-md-12">
+        <form action="{{ _id }}?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input class="form-control" type="text" name="firstname" value="{{ firstname }}">
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input class="form-control" type="text" name="lastname" value="{{ lastname }}">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="text" name="email" value="{{ email }}">
+          </div>
+          <div>
+            <input type="file" name="imgEtoile" value="{{ imgUser }}">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <a href="/">
+          <p>Retourner sur la page d'accueil</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</div> --}}

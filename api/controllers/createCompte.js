@@ -20,7 +20,7 @@ var rand, mailOptions, host, link
 
 module.exports = {
     get: (req, res) => {
-        res.render('createCompte')
+        res.render('create/createCompte')
     },
 
     postCreateCompte: (req, res) => {

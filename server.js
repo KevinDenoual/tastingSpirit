@@ -20,6 +20,13 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 
+//Helpers
+// **************limitEach***********
+handlebars.registerHelper('limitEach', function (arr, limitEach) {
+    if (!Array.isArray(arr)) { return []; }
+    return arr.slice(-limitEach).reverse();
+});
+
 // Express Static
 app.use('/assets', express.static('public'));
 

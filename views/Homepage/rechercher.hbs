@@ -35,7 +35,7 @@
         {{#each dbFiche}}
         <li>
           <a href="#modal1{{_id}}" class="modal-trigger">
-            <p>noms: {{ whiskyName}} Typicité: {{ type }} pays: {{ origine }} </p>
+            <p>noms: {{ distillerie }} {{ whiskyName}} Typicité: {{ type }} pays: {{ origine }} </p>
           </a>
         </li>
 
@@ -46,8 +46,8 @@
               <div class="col l4 s4">
                 <p>{{ whiskyName }}</p>
               </div>
-              <div class="col l8 s8" style="width: 200px; height: 200px">
-                <img src="" alt="">
+              <div class="col l8 s8">
+                <img src="{{ imgFiche }} " alt="" style="width: 200px; height: 200px">
               </div>
             </div>
             <div class="row">

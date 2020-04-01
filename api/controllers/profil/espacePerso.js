@@ -103,7 +103,21 @@ module.exports = {
                 else res.redirect('/espacePerso')
             }
         )
-    }
+    },
+
+    deleteOne: (req, res) => {
+        const query = { _id: req.params.id }
+        
+        degustModel.deleteOne(query,
+            (err) => {
+                
+                if (!err) {
+                    res.redirect('/espacePerso')
+                } else {
+                    res.render(err)
+                }
+            })
+    },
 
 }
 

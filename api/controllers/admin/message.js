@@ -12,18 +12,18 @@ module.exports = {
             {
                 email: req.body.email,
                 message: req.body.message
+            },
+            (err) => { 
+                if (err) console.log(err)
+                
+                else res.redirect('/')
             }
-        ), 
-        (err) => { 
-            if (err) console.log(err)
-            
-            else res.redirect('/')
-        }
-
+        )      
     },
 
     delete: (req, res) => {
         const query = { _id: req.params.id }
+console.log(query);
 
         messageModel.deleteOne(
             query,
