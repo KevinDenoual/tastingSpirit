@@ -1,12 +1,15 @@
 const messageModel = require('../../database/messageModel')
+const userCollection = require('../../database/userModel');
+
 
 module.exports = {
     get: async (req, res) => {
         const dbMessage = await messageModel.find(req.params.id)
-        res.render('admin/message', {dbMessage} )
+        const dbUserId = await userCollection.findById(req.session.userId)
+        res.render('admin/message', {dbMessage, dbUserId } )
     },
 
-    post: (req, res) => {
+    post: (req, res, end) => {
 
         messageModel.create(
             {

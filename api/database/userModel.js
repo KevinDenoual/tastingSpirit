@@ -19,10 +19,19 @@ const userSchema = new mongoose.Schema({
     },
 
     password: {
-        type: String,
-        
+        type: String,     
     },
 
+    userGoogleName: {
+        type: String
+    },
+
+    googleId: {
+        type: String
+    },
+    userFacebook: {
+        type: String
+    },
     status: {
         type: String,
         default: 'user'
@@ -40,7 +49,7 @@ const userSchema = new mongoose.Schema({
     isBan: {
         type: Boolean,
         default: false,
-    },
+    },  
     imgUser: {
         type: String,
         default: "https://i.stack.imgur.com/34AD2.jpg"
@@ -54,10 +63,6 @@ userSchema.pre('save', function ( next ) {
         next()
     })
 })
-
-
-
-
 
 
 module.exports = mongoose.model('usercollection', userSchema)

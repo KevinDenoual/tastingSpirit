@@ -1,10 +1,14 @@
 const degustModel = require('../../database/degustModel')
+const userCollection = require('../../database/userModel');
+
+const swal = require('sweetalert')
 
 module.exports = {
     get:  async (req, res) => {
         const dbDegust = await degustModel.find(req.params.id)
+        const dbUserId = await userCollection.findById(req.session.userId)
         
-        res.render('profil/espacePerso', { dbDegust } )
+        res.render('profil/espacePerso', { dbDegust, dbUserId } )
         // console.log(dbDegust);
         
     },
@@ -100,9 +104,14 @@ module.exports = {
             (err) => { 
                 if (err) console.log(err)
                 
-                else res.redirect('/espacePerso')
+                else {
+                
+                    res.redirect('/espacePerso')
+                }
             }
         )
+        swal("Good job!", "You clicked the button!", "success");
+
     },
 
     deleteOne: (req, res) => {

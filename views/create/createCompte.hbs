@@ -1,20 +1,33 @@
-<div class="create-acount">
+<div class="conatainer">
     <h1>Création de compte</h1>
+
+     {{#if errors}}
+        {{!-- On parcours le tableau des errors --}}
+        {{#each errors}}
+            {{!-- On affiche la variable que l'on veux afficher --}}
+            <div class="row">
+                <div class="col l10 s10">
+                    <div class="msg msg-error z-depth-3 scale-transition">{{msg}}</div>
+                </div>
+            </div>       
+        {{/each}}
+    {{/if}}
+
     <div class="row">
-        <form class="col s12" action="/createCompte" method="POST"> 
+        <form action="/createCompte" method="POST">
             <div class="row">
                 <div class="input-field col l6 s12">
-                    <input id="firstname" type="text" name="firstname" class="validate">
+                    <input id="firstname" type="text" name="firstname" class="validate"  >
                     <label for="firstname">Prénom</label>
                 </div>
                 <div class="input-field col l6 s12">
-                    <input id="lastname" type="text" name="lastname" class="validate">
+                    <input id="lastname" type="text" name="lastname" class="validate"  >
                     <label for="lastname">Nom</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col l12 s12">
-                    <input id="email" type="email" name="email" class="validate">
+                    <input id="email" type="email" name="email" class="validate"  >
                     <label for="email">Email</label>
                 </div>
             </div>
@@ -29,10 +42,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col s12">
+                <div class="col l12 s12">
                     <p>
                         <label>
-                            <input type="checkbox" />
+                            <input type="checkbox" disabled />
                             <span>Je déclare être majeur</span>
                         </label>
                     </p>
@@ -47,3 +60,19 @@
         </form>
     </div>
 </div>
+
+<style>
+    .msg {
+  width:100%;
+  border: 1px solid;
+  padding:10px;
+  
+  color: grey;
+}
+.msg-error {
+  // rouge
+  border-color: #d32f2f;
+  background-color: #ef5350;
+  color: white;
+}
+</style>

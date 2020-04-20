@@ -5,7 +5,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       {{#if user }}
       <li><a href="/espacePerso">Mon profil</a></li>
-      <li><a href="/deco">Deconnexion</a></li>
+      <li><a class="modal-trigger" href="#modal1">Deconnexion</a></li>
       {{ else }}
       {{/if }}
 
@@ -34,14 +34,14 @@
         <img src="/assets/images/strathisla.jpg" width="100%">
       </div>
       <!-- Modal Trigger -->
-      <a href="#modal1"><img class="circle" value="{{ imgUser }}"></a>
+      <a><img class="circle" src="{{ dbUserId.imgUser }}"></a>
       <!------------------->
-      <a href="#name"><span class="white-text name">{{ firstname }} {{ lastname }} </span></a>
-      <p><span class="white-text email">{{ email }} coucou</span></p>
+      <a href="#name"><span class="white-text name">{{ firstname }} {{ lastname }} {{ userGoogleName }} </span></a>
+      <p><span class="white-text email">{{ dbUserId.email }}</span></p>
     </div>
   </li>
   <li><a href="/espacePerso">Mon profil</a></li>
-  <li><a href="/deco">Deconnexion</a></li>
+  <li><a class="modal-trigger" href="#modal1">Deconnexion</a></li>
   {{else}}
   {{/if}}
 
@@ -53,36 +53,14 @@
   <li><a href="/createCompte">créer un compte</a></li>
 </ul>
 
-<!-- Modal Structure -->
-{{!-- <div id="modal1" class="modal">
-  <div class="modal-content">
-    <div class="row">
-      <div class="col-md-12">
-        <form action="{{ _id }}?_method=PUT" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-            <label>Prénom</label>
-            <input class="form-control" type="text" name="firstname" value="{{ firstname }}">
-          </div>
-          <div class="form-group">
-            <label>Nom</label>
-            <input class="form-control" type="text" name="lastname" value="{{ lastname }}">
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input class="form-control" type="text" name="email" value="{{ email }}">
-          </div>
-          <div>
-            <input type="file" name="imgEtoile" value="{{ imgUser }}">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <a href="/">
-          <p>Retourner sur la page d'accueil</p>
-      </div>
+<!-- Modal confirmation de deconnexion -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Etes vous sur de vouloir vous déconnecter ?</h4>
     </div>
-  </div>
-  <div class="modal-footer">
-
-  </div>
-</div> --}}
+    <div class="modal-footer">
+            <a href="/deco"><button class="modal-close waves-effect waves-green btn-flat">oui</button></a> 
+        </form>
+        <button type="button" class="modal-close waves-effect waves-green btn-flat">non</button>
+    </div>
+</div>

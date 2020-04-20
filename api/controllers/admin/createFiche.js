@@ -1,8 +1,11 @@
 const ficheModel = require('../../database/ficheModel')
+const userCollection = require('../../database/userModel');
+
 
 module.exports = {
-    get: (req, res) => {
-        res.render('admin/createFiche')
+    get: async (req, res) => {
+        const dbUserId = await userCollection.findById(req.session.userId)
+        res.render('admin/createFiche', { dbUserId })
     },
 
     postFiche: (req, res) => {

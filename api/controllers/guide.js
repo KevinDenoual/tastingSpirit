@@ -1,5 +1,9 @@
+const userCollection = require('../database/userModel');
+
+
 module.exports = {
-    get: (req, res) => {
-        res.render('Homepage/guide')
+    get: async (req, res) => {
+        const dbUserId = await userCollection.findById(req.session.userId)
+        res.render('Homepage/guide', { dbUserId })
     }
 }

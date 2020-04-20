@@ -1,7 +1,12 @@
+{{!------- FONTAWESOME -------}}
 <script src="https://kit.fontawesome.com/614db98f48.js" crossorigin="anonymous"></script>
+{{!------- MATERIALIZE -------}}
 <script src="/assets/materialize-src/js/bin/materialize.min.js"></script>
+{{!------- SWEETALERT -------}}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
+{{!------- JQUERY MATERIALIZE -------}}
 <script>
   $(document).ready(function () {
     $('.sidenav').sidenav();
@@ -11,8 +16,26 @@
     $('.collapsible').collapsible();
     $('.fixed-action-btn').floatingActionButton();
     $('.case').is(':checked')
+    $('.succes').swal({
+     title: "OK",
+     text: "message envoyé",
+     icon: "success",
+     buttons: false,
+     timer: 4000,
+    })
   });
+
+
+
+ 
+   
+
 </script>
 
+{{!-- setTimeout(() => { $('#modalPopUp').modal({ show: true }) console.log('setTimeout') }, 0) 
 
-
+$('.succes').swal({
+      title: "OK",
+      text: "message envoyé",
+      icon: "success",
+    }); --}}

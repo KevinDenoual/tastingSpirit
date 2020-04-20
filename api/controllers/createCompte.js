@@ -1,4 +1,9 @@
 const userModel = require('../database/userModel')
+const userCollection = require('../database/userModel');
+const { check, validationResult } = require('express-validator');
+const keys = require('../config/keys')
+
+
 
 // Nodemailer import + setup
 const nodemailer = require('nodemailer')
@@ -8,8 +13,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false, 
     auth: {
-        user: "regis.dupond666@gmail.com",
-        pass: "Arinfo2019"
+        user: keys.nodemailer.user,
+        pass: keys.nodemailer.pass
     },
     tls: {
         rejectUnauthorized: false
@@ -19,30 +24,35 @@ const transporter = nodemailer.createTransport({
 var rand, mailOptions, host, link
 
 module.exports = {
-    get: (req, res) => {
-        res.render('create/createCompte')
+    get: async (req, res) => {
+        const dbUserId = await userCollection.findById(req.session.userId)
+        res.render('create/createCompte', { dbUserId : dbUserId })
     },
 
-    postCreateCompte: (req, res) => {
+    postCreateCompte: async (req, res) => {
         const Pass = req.body.password
         const confPass = req.body.confPassword
+        const dbUserId = await userCollection.findById(req.session.userId)
+        const errors = validationResult(req);
+         
+        
 
         // Nodemailer config
         rand = Math.floor((Math.random() * 100) + 54)
         host = req.get('host')
         link = "http://" + req.get('host') + "/verify/" + rand
         mailOptions = {
-            from: 'regis.dupond666@gmail.com',
+            from: keys.nodemailer.user,
             to: req.body.email, 
             subject: 'Please confirm your Email account',
             rand: rand,
             html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>",
         }
-        console.log(req.body)
         
-        console.log(mailOptions)
-        
-        if (Pass !== confPass) {
+
+        if (!errors.isEmpty()) {        
+            return res.status(422).render('create/createCompte', { dbUserId : dbUserId, errors: errors.array() });
+        } if (Pass !== confPass) {
             res.redirect('/createCompte')
         } else {
             userModel.create(
@@ -55,20 +65,25 @@ module.exports = {
                     isAdmin: false,
                     isBan: false
                 },
-                // Nodemailer transport
-                transporter.sendMail(mailOptions, (err, res, next) => {
-                    if (err) {
-                        console.log(err)
-                        res.render(err)
+                (error) => {
+                    if (error) {
+                        console.log(error);
                     } else {
-                        console.log('message envoyé')
-                        next()
+                        // Nodemailer transport
+                        transporter.sendMail(mailOptions, (err, res, next) => {
+                            if (err) {
+                                console.log(err)
+                                res.render(err)
+                            } else {
+                                console.log('message envoyé')
+                                next()
+                            }
+                        }),
+                        res.redirect('/')
                     }
-                }),
-                res.redirect('/')
+                 }   
             )
-        }
-        
+        }      
     },
 
     // Nodemailer verif 
@@ -82,15 +97,16 @@ module.exports = {
 
                 userModel.findByIdAndUpdate(
                     {_id: userId._id },
-                    { isVerified: true },
+                    { isVerified: true },              
                     (err) => {
                         if (!err) {
                             res.redirect('/verifMail')
                         } else {
                             res.rend(err)
                         }
-                    }
+                    },                  
                 )
+                
             } else {
                 res.rend("bad request")
             }

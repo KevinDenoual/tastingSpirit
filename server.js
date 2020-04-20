@@ -7,13 +7,19 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
 const helpers = require('handlebars-helpers')();
+const sweetalert = require('sweetalert');
+const passport = require('passport');
+const keys = require('./api/config/keys');
 
 const app = express()
 const port = 3000
 const urlDB = 'mongodb://localhost:27017/tastingSpirit'
 const mongoStore = MongoStore(expressSession);
+const googleStrat = require('./api/config/googleStrat')
+const facebookStrat = require('./api/config/facebookStrat')
 
-// Method-Override
+
+// Method-Override 
 app.use(methodOverride('_method'));
 
 // Body Parser
@@ -32,6 +38,8 @@ app.use('/assets', express.static('public'));
 
 // Express Session
 app.use(expressSession({
+    maxAge: 24*60*60*1000, // 24h
+    keys: keys.session.cookieKey,
     secret: 'securite',
     name: 'cookie',
     saveUninitialized: true,
@@ -51,6 +59,13 @@ app.use('*', (req, res, next) => {
     res.locals.isBan = req.session.isBan
     next()
 })
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(express.json());
 
 // Mongoose
 mongoose.connect(urlDB, {

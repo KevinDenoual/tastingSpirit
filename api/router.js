@@ -1,61 +1,38 @@
 // Import
 const express = require('express')
 const router = express.Router()
-const multer = require('multer')
+const path = require('path')
+const { check, validationResult } = require('express-validator')
 
-// Import controllers
+
+// ************** Import controllers ************** 
+// HOME
 const home = require('./controllers/home')
 const decouvrir = require('./controllers/decouvrir')
 const guide = require('./controllers/guide')
 const rechercher = require('./controllers/rechercher')
+// EspacePerso
 const espacePerso = require('./controllers/profil/espacePerso')
-const connexion = require('./controllers/connexion')
-const forgotpassword = require('./controllers/forgotpassword')
-const newpassword = require('./controllers/newpassword')
-const deco = require('./controllers/deco')
-const createCompte = require('./controllers/createCompte')
+// Auth
+const connexion = require('./controllers/auth/connexion')
+const deco = require('./controllers/auth/deco')
+const forgotpassword = require('./controllers/auth/forgotpassword')
+const newpassword = require('./controllers/auth/newpassword')
+const googleAuth = require('./controllers/auth/googleAuth')
+const facebookAuth = require('./controllers/auth/facebookAuth')
+// Create Compte
+const createCompte = require('./controllers/createCompte',)
+const verifMail = require ('./controllers/verifMail')
+//  ADMIN
 const admin = require('./controllers/admin/admin')
 const message = require('./controllers/admin/message')
-const createFiche = require('./controllers/admin/createFiche')
 const userList = require('./controllers/admin/userList')
-const verifMail = require ('./controllers/verifMail')
-
-    //********* Multer ***********//
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/images')
-    },
-    filename: (req, file, cb) => {
-        const ext = file.originalname
-        const date = Date.now()
-        cb(null, ext, file.fieldname + '-' + date)
-    }
-})
-
-const upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1 * 4098 * 4098,
-        files: 1
-    },
-    fileFilter: (req, file, cb) => {
-        if (
-            file.mimetype === "image/png" ||
-            file.mimetype === "image/jpg" ||
-            file.mimetype === "image/gif" ||
-            file.mimetype === "image/jpeg"
-        ) {
-            cb(null, true)
-        } else {
-            cb(null, false)
-            cb(new Error('Le fichier doit être au format png, jpg, gif ou jpeg'))
-        }
-    }
-})
+const createFiche = require('./controllers/admin/createFiche')
+const multer = require('./config/multer')
 
 
-    //********* Connexion ***********//
-// Connexion
+
+// ************** Auth **************   
 router.route('/connexion')
     .get(connexion.get)
     .post(connexion.postConnexion)
@@ -73,12 +50,21 @@ router.route('/newpassword')
 // Deconnexion
 router.route('/deco')
     .get(deco.get)
+// Google Auth
+router.use('/connexion/google', googleAuth)
+//  Facebook Auth
+router.use('/connexion/facebook', facebookAuth)
 
-    //********* Signup ***********//
+// ************** Create Compte ************** 
 // Creation de compte
 router.route('/createCompte')
     .get(createCompte.get)
-    .post(createCompte.postCreateCompte)
+    .post([
+        check('email').not().isEmpty().normalizeEmail().withMessage('email nécessaire'),
+        check('firstname').not().isEmpty().trim().escape().isAlpha().withMessage('prénom'),
+        check('lastname').not().isEmpty().trim().escape().withMessage('nom'),
+        check('password').not().isEmpty().matches().isLength({min: 5}).withMessage('mot de passe : 5 caractères minimum')
+    ],createCompte.postCreateCompte)
 // Nodemailer verif 
 router.route('/verify/:id')
     .get(createCompte.verifMail)
@@ -86,7 +72,7 @@ router.route('/verify/:id')
 router.route('/verifMail')
     .get(verifMail.get)
 
-    //********* Homme page ***********//
+// ************** HOME page ************** 
     // Home
 router.route('/')
 .get(home.get)
@@ -103,7 +89,7 @@ router.route('/guide')
 router.route('/rechercher')
     .get(rechercher.get)
 
-    //********* EspacePerso***********//
+// ************** EspacePerso ************** 
 // Profil
 router.route('/espacePerso')
     .get(espacePerso.get)
@@ -111,7 +97,7 @@ router.route('/espacePerso')
 router.route('/espacePerso/:id')
     .delete(espacePerso.deleteOne)
 
-    //********* Admin ***********//
+// ************** ADMIN ************** 
 // Admin
 router.route('/admin')
     .get(admin.get)
@@ -125,9 +111,7 @@ router.route('/admin/message/:id')
 // CreateFiche
 router.route('/admin/createFiche')
     .get(createFiche.get)
-    .post(upload.single('imgFiche'), createFiche.postFiche)
-
-
+    .post(multer.single('imgFiche'), createFiche.postFiche)
 // UserList
 router.route('/admin/userList')
     .get(userList.getListUser)
