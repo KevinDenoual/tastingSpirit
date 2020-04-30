@@ -26,9 +26,8 @@ module.exports = {
 
     delete: (req, res) => {
         const query = { _id: req.params.id }
-console.log(query);
 
-        messageModel.deleteOne(
+          messageModel.deleteOne(
             query,
 
             (err) => {

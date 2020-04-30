@@ -1,3 +1,5 @@
+
+{{!-- =============== Liste des utilisateurs ===============--}}
 <section>
     <div>
         <h3>liste des utilisateurs</h3>
@@ -15,11 +17,11 @@
                             <th>Bannis</th>
                         </tr>
                     </thead>
-
+            {{!-- =============== récuparation des données pour chaque utilisateur ===============--}}
                     {{#each dbuser }}
                     <tbody>
                         <tr>
-                            <td>{{ lastname }}</td>
+                            <td>{{ lastname }} {{ userGoogleName }} </td>
                             <td>{{ firstname }}</td>
                             <td>{{ email }}</td>
                             <td>{{ isVerified }}</td>
@@ -34,7 +36,7 @@
                         <!-- Modal Supprimer -->
                         <div id="modal1{{_id}}" class="modal">
                             <div class="modal-content">
-                                <h4>Confirmer la suppression {{ firstname }} {{ lastname }} ?</h4>
+                                <h4>Confirmer la suppression {{ firstname }} {{ userGoogleName }} {{ lastname }} ?</h4>
                             </div>
                             <div class="modal-footer">
                                 <form action="/admin/userList/{{_id}}/?_method=delete" method="POST">

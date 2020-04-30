@@ -1,6 +1,9 @@
+
+{{!-- =============== Créer un compte ===============--}}
 <div class="conatainer">
     <h1>Création de compte</h1>
 
+{{!-- =============== express validator ===============--}}
      {{#if errors}}
         {{!-- On parcours le tableau des errors --}}
         {{#each errors}}
@@ -12,7 +15,10 @@
             </div>       
         {{/each}}
     {{/if}}
+{{!-- =============== FIN express validator ===============--}}
 
+
+{{!-- =============== Formulaire de création de compte ===============--}}
     <div class="row">
         <form action="/createCompte" method="POST">
             <div class="row">
@@ -60,7 +66,9 @@
         </form>
     </div>
 </div>
+{{!-- =============== FIN Formulaire de création de compte ===============--}}
 
+{{!-- =============== Style pour bannière erreur ===============--}}
 <style>
     .msg {
   width:100%;
@@ -76,3 +84,4 @@
   color: white;
 }
 </style>
+{{!-- =============== FIN Style pour bannière erreur ===============--}}

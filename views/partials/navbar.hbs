@@ -1,3 +1,10 @@
+
+{{!-- =============== Navbar ===============--}}
+{{!-- 
+*
+* le status de l'utilisateur est récupéré dans le req.session 
+*
+ --}}
 <nav class="nav-extended">
   <div class="nav-wrapper">
     <a href="/" class="brand-logo">Logo</a>
@@ -14,7 +21,10 @@
       <li><a href="/connexion">Connexion</a></li>
       {{/if }}
 
+      {{#if user}}
+      {{else }}
       <li><a href="/createCompte">créer un compte</a></li>
+      {{/if }}
     </ul>
   </div>
   <div class="row">
@@ -25,7 +35,9 @@
   </div>
 
 </nav>
+{{!-- =============== FIN Navbar ===============--}}
 
+{{!-- =============== SIDEnav ===============--}}
 <ul id="slide-out" class="sidenav">
   {{#if user }}
   <li>
@@ -33,27 +45,30 @@
       <div class="background">
         <img src="/assets/images/strathisla.jpg" width="100%">
       </div>
-      <!-- Modal Trigger -->
       <a><img class="circle" src="{{ dbUserId.imgUser }}"></a>
-      <!------------------->
       <a href="#name"><span class="white-text name">{{ firstname }} {{ lastname }} {{ userGoogleName }} </span></a>
       <p><span class="white-text email">{{ dbUserId.email }}</span></p>
     </div>
   </li>
   <li><a href="/espacePerso">Mon profil</a></li>
   <li><a class="modal-trigger" href="#modal1">Deconnexion</a></li>
-  {{else}}
-  {{/if}}
+  {{else }}
+  {{/if }}
+
+  {{#if user }}
+  {{else }}
+  <li><a href="/connexion">Connexion</a></li>
+  {{/if }}
 
   {{#if user}}
   {{else}}
-  <li><a href="/connexion">Connexion</a></li>
-  {{/if}}
-
   <li><a href="/createCompte">créer un compte</a></li>
+  {{/if}}
 </ul>
+{{!-- =============== FIN SIDEnav ===============--}}
 
-<!-- Modal confirmation de deconnexion -->
+
+{{!-- =============== Modal confirmation de deconnexion ===============--}}
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4>Etes vous sur de vouloir vous déconnecter ?</h4>

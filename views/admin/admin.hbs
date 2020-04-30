@@ -1,10 +1,12 @@
+
+{{!-- =============== Home page Admin ===============--}}
 <div class="container">
     <h5>Dernier utilisateur</h5>
     <ul class="collection">
         {{#each (limitEach dbUser 3) }}
         <li class="collection-item avatar">
             <img src="{{ imgUser }}" alt="" class="circle">
-            <p>{{ firstname }} </p>
+            <p>{{ firstname }} {{userGoogleName}} </p>
             <p>{{ lastname }} </p>
             <p>{{ email }} </p>
         </li>

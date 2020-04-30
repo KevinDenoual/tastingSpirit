@@ -1,7 +1,7 @@
 const ficheModel = require('../database/ficheModel')
 const userCollection = require('../database/userModel');
 
-
+/********************** Afichage page rechercher **********************/ 
 module.exports = {
     get: async (req, res) => {
         const dbFiche = await ficheModel.find(req.params.id)

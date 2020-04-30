@@ -9,8 +9,7 @@ const userSchema = new mongoose.Schema({
     },
     
     lastname: {
-        type: String,
-        
+        type: String,     
     },
 
     email: {
@@ -29,9 +28,7 @@ const userSchema = new mongoose.Schema({
     googleId: {
         type: String
     },
-    userFacebook: {
-        type: String
-    },
+   
     status: {
         type: String,
         default: 'user'

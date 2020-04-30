@@ -1,6 +1,9 @@
+{{!-- =============== Page recherche ===============--}}
 <div class="container">
   <div id="rechercher" class="row">
     <h1>rechercher</h1>
+
+    {{!-- Select pays --}}
     <div class="input-field col s4 m4">
       <select>
         <option value="" disabled selected>Pays</option>
@@ -9,6 +12,8 @@
         <option value="3">Option 3</option>
       </select>
     </div>
+
+    {{!-- Select type --}}
     <div class="input-field col s4 m4">
       <select>
         <option value="" disabled selected>Typicité</option>
@@ -17,6 +22,8 @@
         <option value="3">Option 3</option>
       </select>
     </div>
+
+    {{!-- Select marque --}}
     <div class="input-field col s4 m4">
       <select>
         <option value="" disabled selected>Marque</option>
@@ -28,6 +35,8 @@
   </div>
 </div>
 
+
+{{!-- =============== Affichage liste de recherche===============--}}
 <div class="container">
   <div class="row">
     <div class="col l12 s12">
@@ -78,8 +87,91 @@
                 <p>{{ prix }}</p>
               </div>
             </div>
+            {{#if ../isAdmin }}
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col l6 s6">
+                  <form action="/admin/fiche/{{_id}}/?_method=delete" method="POST">
+                    <button class="btn" type="submit"><i class="material-icons">delete</i></button>
+                  </form>
+                </div>
+                <div class="col l6 s6">
+                  <button data-target="modal2{{_id}}" class="btn modal-trigger" type="submit"><i
+                      class="material-icons">edit</i></button>
+                </div>
+              </div>
+            </div>
+            {{else }}
+            {{/if }}
           </div>
         </div>
+
+        <!-- Modal Edit -->
+        <div id="modal2{{_id}}" class="modal">
+
+          <form action="/admin/fiche/{{_id}}/?_method=PUT" method="POST">
+
+            <div class="modal-content">
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="{{ whiskyName }}" type="text" name="whiskyName">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="{{ distillerie }}" type="text" name="distillerie">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="{{ type }}" type="text" name="type">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="{{ origine }}" type="text" name="origine">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input value="{{ finition }}" type="text" name="finition">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s3">
+                  <input value="{{ titre }}" type="text" name="titre">
+                </div>
+                <div class="input-field col s3">
+                  <input value="{{ prix }}" type="text" name="prix">
+                </div>
+              </div>
+
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Image</span>
+                  <input type="file" name="imgFiche">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="modal-close waves-effect waves-green btn-flat">validé</button>
+              <button type="button" class="modal-close waves-effect waves-green btn-flat">retour</button>
+            </div>
+
+          </form>
+
+        </div>
+
         {{/each}}
       </ul>
     </div>

@@ -1,3 +1,11 @@
+/** NOTES
+ * 
+ * 
+ * 
+ * 
+ * ************/  
+
+// ************** Import Module***********
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -7,36 +15,45 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
 const helpers = require('handlebars-helpers')();
-const sweetalert = require('sweetalert');
 const passport = require('passport');
-const keys = require('./api/config/keys');
-
+// const keys = require('./api/config/keys');
+const morgan = require('morgan') // Documente le journal  
+const helmet = require('helmet') // Helmet helps you secure your Express apps by setting various HTTP headers
 const app = express()
-const port = 3000
-const urlDB = 'mongodb://localhost:27017/tastingSpirit'
 const mongoStore = MongoStore(expressSession);
+const port = 3000
+
+
+// ************** API ***********
 const googleStrat = require('./api/config/googleStrat')
-const facebookStrat = require('./api/config/facebookStrat')
+const keys = require('./api/config/keys')
+
+const urlDB = 'mongodb://localhost:27017/tastingSpirit'
 
 
-// Method-Override 
+
+// ************** Method-Override ***********
 app.use(methodOverride('_method'));
 
-// Body Parser
+
+// ************** Body Parser ***********
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 
-//Helpers
-// **************limitEach***********
+
+// ************** Helper ***********
+// limitEach
 handlebars.registerHelper('limitEach', function (arr, limitEach) {
     if (!Array.isArray(arr)) { return []; }
     return arr.slice(-limitEach).reverse();
 });
 
-// Express Static
+
+// ************** Express Static ***********
 app.use('/assets', express.static('public'));
 
-// Express Session
+
+// ************** Express Session ***********
 app.use(expressSession({
     maxAge: 24*60*60*1000, // 24h
     keys: keys.session.cookieKey,
@@ -60,14 +77,25 @@ app.use('*', (req, res, next) => {
     next()
 })
 
-// initialize passport
+
+// ************** Initialize Passport ***********
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Express Validator
+
+// ************** Express Validator ***********
 app.use(express.json());
 
-// Mongoose
+
+// ************** Helmet ***********
+app.use(helmet())
+
+
+// ************** Morgan ***********
+app.use(morgan('dev'));
+
+
+// ************** Mongoose ***********
 mongoose.connect(urlDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -75,7 +103,8 @@ mongoose.connect(urlDB, {
     useCreateIndex: true
 });
 
-// Handlebars
+
+// ************** Handlebar ***********
 app.engine('hbs', exphbs({
     extname: 'hbs',
     defaultLayout: 'main'
@@ -83,16 +112,18 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 
-// Router
+// ************** Router ***********
 const router = require('./api/router')
 app.use("/", router)
 
-// Error404
+
+// ************** Error404 ***********
 app.use((req, res) => {
     res.render('error404')
 })
 
-// Port
+
+// ************** Port ***********
 app.listen(port, function () {
     console.log("le serveur tourne sur le port " + port);
 })

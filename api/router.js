@@ -19,7 +19,6 @@ const deco = require('./controllers/auth/deco')
 const forgotpassword = require('./controllers/auth/forgotpassword')
 const newpassword = require('./controllers/auth/newpassword')
 const googleAuth = require('./controllers/auth/googleAuth')
-const facebookAuth = require('./controllers/auth/facebookAuth')
 // Create Compte
 const createCompte = require('./controllers/createCompte',)
 const verifMail = require ('./controllers/verifMail')
@@ -27,7 +26,7 @@ const verifMail = require ('./controllers/verifMail')
 const admin = require('./controllers/admin/admin')
 const message = require('./controllers/admin/message')
 const userList = require('./controllers/admin/userList')
-const createFiche = require('./controllers/admin/createFiche')
+const Fiche = require('./controllers/admin/Fiche')
 const multer = require('./config/multer')
 
 
@@ -52,8 +51,7 @@ router.route('/deco')
     .get(deco.get)
 // Google Auth
 router.use('/connexion/google', googleAuth)
-//  Facebook Auth
-router.use('/connexion/facebook', facebookAuth)
+
 
 // ************** Create Compte ************** 
 // Creation de compte
@@ -101,17 +99,20 @@ router.route('/espacePerso/:id')
 // Admin
 router.route('/admin')
     .get(admin.get)
-
 // Message
 router.route('/admin/message')
     .get(message.get)
     .post(message.post)
 router.route('/admin/message/:id')
     .delete(message.delete)
-// CreateFiche
+// Fiche
 router.route('/admin/createFiche')
-    .get(createFiche.get)
-    .post(multer.single('imgFiche'), createFiche.postFiche)
+    .get(Fiche.get)
+    .post(multer.single('imgFiche'), Fiche.postFiche)
+// Fiche/:id
+router.route('/admin/fiche/:id')
+    .delete(Fiche.deleteFiche)
+    .put(multer.single('imgFiche'), Fiche.putFiche)
 // UserList
 router.route('/admin/userList')
     .get(userList.getListUser)
