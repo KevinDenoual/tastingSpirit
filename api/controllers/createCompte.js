@@ -76,7 +76,6 @@ module.exports = {
                                 res.render(err)
                             } else {
                                 console.log('message envoyé')
-                                M.toast({html: 'I am a toast!'})
                                 next()
                             }
                         }),

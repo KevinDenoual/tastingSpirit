@@ -16,19 +16,18 @@ const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
 const helpers = require('handlebars-helpers')();
 const passport = require('passport');
-// const keys = require('./api/config/keys');
 const morgan = require('morgan') // Documente le journal  
 const helmet = require('helmet') // Helmet helps you secure your Express apps by setting various HTTP headers
 const app = express()
 const mongoStore = MongoStore(expressSession);
-const port = 3000
+const port = process.env.PORT || 3000
 
 
 // ************** API ***********
 const googleStrat = require('./api/config/googleStrat')
 const keys = require('./api/config/keys')
 
-const urlDB = 'mongodb://localhost:27017/tastingSpirit'
+const urlDB = keys.mongoDB.urlCloud
 
 
 
@@ -96,12 +95,15 @@ app.use(morgan('dev'));
 
 
 // ************** Mongoose ***********
-mongoose.connect(urlDB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-});
+mongoose
+    .connect(urlDB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    })
+    .then(() => console.log('connecter à MogoDB Cloud'))
+    .catch(err => console.log(err));
 
 
 // ************** Handlebar ***********
