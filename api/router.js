@@ -28,6 +28,8 @@ const message = require('./controllers/admin/message')
 const userList = require('./controllers/admin/userList')
 const Fiche = require('./controllers/admin/Fiche')
 const multer = require('./config/multer')
+// Middleware auth
+// const auth = require('./middleware/auth')
 
 
 

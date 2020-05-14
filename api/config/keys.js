@@ -17,6 +17,7 @@ module.exports = {
         pass: 'Arinfo2019'
     },
     mongoDB: {
-        urlCloud: 'mongodb+srv://TS:RP9TWnGOuPOCY0w9@tastingspirit-7fj8c.mongodb.net/test?retryWrites=true&w=majority'
+        urlCloud: 'mongodb+srv://TS:RP9TWnGOuPOCY0w9@tastingspirit-7fj8c.mongodb.net/test?retryWrites=true&w=majority',
+        urlLocal: 'mongodb://localhost:27017/tastingSpirit'
     }
 }
