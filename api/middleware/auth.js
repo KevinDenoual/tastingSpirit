@@ -1,12 +1,12 @@
-const authCheck = require('../database/passportModel')
-
 module.exports = (req, res, next) => {
-    authCheck.findById(req.session.userId,
-        (error, user) => {
-            if (error || !user) {
-                res.redirect('/connexion')
-            } else {
-                next()
-            }
-        })
+
+    if (!req.session.userId) {
+        console.log('pas de compte');
+         res.render('Co&password/connexion')  
+
+    }else{
+      next()  
+    }
+
+
 }

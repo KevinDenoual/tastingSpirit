@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     service: 'gmail',
     port: 587,
-    secure: false, 
+    secure: true, 
     auth: {
         user: keys.nodemailer.user,
         pass: keys.nodemailer.pass
@@ -36,7 +36,9 @@ module.exports = {
         const errors = validationResult(req);
          
         
-
+        console.log('Test Req.Host')
+        console.dir(req.hostname)
+        
         // Nodemailer config
         rand = Math.floor((Math.random() * 100) + 54)
         host = req.get('host')
@@ -73,7 +75,7 @@ module.exports = {
                         transporter.sendMail(mailOptions, (err, res, next) => {
                             if (err) {
                                 console.log(err)
-                                res.render(err)
+                                res.send(err)
                             } else {
                                 console.log('message envoyé')
                                 next()
