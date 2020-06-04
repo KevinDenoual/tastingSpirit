@@ -28,8 +28,13 @@ const message = require('./controllers/admin/message')
 const userList = require('./controllers/admin/userList')
 const Fiche = require('./controllers/admin/Fiche')
 const multer = require('./config/multer')
-// Middleware auth
-// const auth = require('./middleware/auth')
+
+
+// ************** Import middleware ************** 
+const auth = require('./middleware/auth')
+const isAdmin = require('./middleware/isAdmin')
+const isVerified = require('./middleware/isVerified')
+
 
 
 
@@ -50,7 +55,7 @@ router.route('/newpassword')
     .post(newpassword.postNewPassword )
 // Deconnexion
 router.route('/deco')
-    .get(deco.get)
+    .get(auth, deco.get)
 // Google Auth
 router.use('/connexion/google', googleAuth)
 
@@ -92,7 +97,7 @@ router.route('/rechercher')
 // ************** EspacePerso ************** 
 // Profil
 router.route('/espacePerso')
-    .get(espacePerso.get)
+    .get(auth, isVerified, espacePerso.get)
     .post(espacePerso.post)
 router.route('/espacePerso/:id')
     .delete(espacePerso.deleteOne)
@@ -100,16 +105,16 @@ router.route('/espacePerso/:id')
 // ************** ADMIN ************** 
 // Admin
 router.route('/admin')
-    .get(admin.get)
+    .get(isAdmin, admin.get)
 // Message
 router.route('/admin/message')
-    .get(message.get)
+    .get(isAdmin, message.get)
     .post(message.post)
 router.route('/admin/message/:id')
     .delete(message.delete)
 // Fiche
 router.route('/admin/createFiche')
-    .get(Fiche.get)
+    .get(isAdmin, Fiche.get)
     .post(multer.single('imgFiche'), Fiche.postFiche)
 // Fiche/:id
 router.route('/admin/fiche/:id')
@@ -117,7 +122,7 @@ router.route('/admin/fiche/:id')
     .put(multer.single('imgFiche'), Fiche.putFiche)
 // UserList
 router.route('/admin/userList')
-    .get(userList.getListUser)
+    .get(isAdmin, userList.getListUser)
 // UserList/:id
 router.route('/admin/userList/:id')
     .delete(userList.deleteOne)

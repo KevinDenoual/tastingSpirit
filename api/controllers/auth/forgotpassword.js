@@ -1,4 +1,5 @@
 const userModel = require('../../database/userModel')
+const keys = require('../../config/keys')
 
 // Nodemailer import + setup
 const nodemailer = require('nodemailer')
@@ -6,10 +7,10 @@ const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     service: 'gmail',
     port: 587,
-    secure: false, 
+    secure: true, 
     auth: {
-        user: "regis.dupond666@gmail.com",
-        pass: "Arinfo2019"
+        user: keys.nodemailer.user,
+        pass: keys.nodemailer.pass
     },
     tls: {
         rejectUnauthorized: false
@@ -46,7 +47,7 @@ module.exports = {
             transporter.sendMail(mailOptions, (err, res, next) => {
                 if (err) {
                     console.log(err)
-                    res.render(err)
+                    res.send(err)
                 } else {
                     console.log('message envoyé')
                     next()
