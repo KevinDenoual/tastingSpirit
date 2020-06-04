@@ -15,10 +15,12 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "chai-things": "^0.2.0",
-    "handlebars": "^4.7.6",
+    "express-oas-generator": "^1.0.23",
+    "handlebars": "^4.5.0",
     "mocha": "^7.1.2",
     "nodemon": "^2.0.2",
-    "should": "^13.2.3"
+    "should": "^13.2.3",
+    "swagger-ui-express": "^4.1.4"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

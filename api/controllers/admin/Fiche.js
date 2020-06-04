@@ -29,7 +29,7 @@ module.exports = {
                 finition: finition,
                 titre: titre,
                 prix: prix,
-                // imgFiche: `/assets/images/${req.file.originalname}`, 
+                imgFiche: `/assets/images/${req.file.originalname}`, 
             },
             (err) => { 
                 if (err) console.log(err)

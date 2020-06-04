@@ -18,6 +18,8 @@ const helpers = require('handlebars-helpers')();
 const passport = require('passport');
 const morgan = require('morgan') // Documente le journal  
 const helmet = require('helmet') // Helmet helps you secure your Express apps by setting various HTTP headers
+const swaggerUi = require('swagger-ui-express');
+const expressOasGenerator = require('express-aos-generator')
 const app = express()
 const mongoStore = MongoStore(expressSession);
 const port = process.env.PORT || 3000
@@ -30,6 +32,9 @@ const keys = require('./api/config/keys')
 const urlDB = keys.mongoDB.urlCloud
 //const urlDB = keys.mongoDB.urlLocal
 
+
+// ************** Express-aos-generator ***********
+expressOasGenerator.init(app,{});
 
 // ************** Method-Override ***********
 app.use(methodOverride('_method'));

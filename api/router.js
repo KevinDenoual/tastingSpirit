@@ -55,7 +55,7 @@ router.route('/newpassword')
     .post(newpassword.postNewPassword )
 // Deconnexion
 router.route('/deco')
-    .get(deco.get)
+    .get(auth, deco.get)
 // Google Auth
 router.use('/connexion/google', googleAuth)
 

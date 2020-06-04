@@ -39,141 +39,118 @@
 {{!-- =============== Affichage liste de recherche===============--}}
 <div class="container">
   <div class="row">
-    <div class="col l12 s12">
-      <ul>
-        {{#each dbFiche}}
-        <li>
-          <a href="#modal1{{_id}}" class="modal-trigger">
-            <p>noms: {{ distillerie }} {{ whiskyName}} Typicité: {{ type }} pays: {{ origine }} </p>
-          </a>
-        </li>
+    {{#each dbFiche}}
+    <div class="col l3 s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ imgFiche }}">
+        </div>
+        <div class="card-content">
+          <div class="row">
+            <div class="col l5">
+              {{ distillerie }}
+            </div>
+            <div class="col l4">
+              {{ whiskyName}}
+            </div>
+            <div class="col l3">
+              {{ titre }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col l4">
+              {{ type }}
+            </div>
+            <div class="col l4">
+              {{ origine }}
+            </div>
+            <div class="col l4">
+              {{ finition }}
+            </div>
+          </div>
 
-        <!-- Modal voir -->
-        <div id="modal1{{_id}}" class="modal">
-          <div class="modal-content">
-            <div class="row">
-              <div class="col l4 s4">
-                <p>{{ whiskyName }}</p>
-              </div>
-              <div class="col l8 s8">
-                <img src="{{ imgFiche }} " alt="" style="width: 200px; height: 200px">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col l4 s4">
-                <p>{{ distillerie }} </p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col l4 s4">
-                <p>{{ type }} </p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col l4 s4">
-                <p>{{ origine }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col l4 s4">
-                <p>{{ finition }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col l2 s2">
-                <p>{{ titre }}</p>
-              </div>
-              <div class="col l2 s2">
-                <p>{{ prix }}</p>
-              </div>
-            </div>
+          <div class="row">
             {{#if ../isAdmin }}
-            <div class="modal-footer">
-              <div class="row">
-                <div class="col l6 s6">
-                  <form action="/admin/fiche/{{_id}}/?_method=delete" method="POST">
-                    <button class="btn" type="submit"><i class="material-icons">delete</i></button>
-                  </form>
-                </div>
-                <div class="col l6 s6">
-                  <button data-target="modal2{{_id}}" class="btn modal-trigger" type="submit"><i
-                      class="material-icons">edit</i></button>
-                </div>
-              </div>
+            <div class="col l6 s6">
+              <form action="/admin/fiche/{{_id}}/?_method=delete" method="POST">
+                <button class="btn" type="submit"><i class="material-icons">delete</i></button>
+              </form>
+            </div>
+            <div class="col l6 s6">
+              <button data-target="modal2{{this.id}}" class="btn modal-trigger"><i
+                  class="material-icons">edit</i></button>
             </div>
             {{else }}
             {{/if }}
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Modal Edit -->
-        <div id="modal2{{_id}}" class="modal">
+    <!-- Modal Edit -->
+    <div id="modal2{{_id}}" class="modal">
 
-          <form action="/admin/fiche/{{_id}}/?_method=PUT" method="POST">
+      <form action="/admin/fiche/{{_id}}/?_method=PUT" method="POST">
 
-            <div class="modal-content">
+        <div class="modal-content container">
 
-              <div class="row">
-                <div class="input-field col s6">
-                  <input value="{{ whiskyName }}" type="text" name="whiskyName">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6">
-                  <input value="{{ distillerie }}" type="text" name="distillerie">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6">
-                  <input value="{{ type }}" type="text" name="type">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6">
-                  <input value="{{ origine }}" type="text" name="origine">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6">
-                  <input value="{{ finition }}" type="text" name="finition">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s3">
-                  <input value="{{ titre }}" type="text" name="titre">
-                </div>
-                <div class="input-field col s3">
-                  <input value="{{ prix }}" type="text" name="prix">
-                </div>
-              </div>
-
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>Image</span>
-                  <input type="file" name="imgFiche">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-                </div>
-              </div>
-
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="{{ whiskyName }}" type="text" name="whiskyName">
             </div>
-            <div class="modal-footer">
-              <button type="submit" class="modal-close waves-effect waves-green btn-flat">validé</button>
-              <button type="button" class="modal-close waves-effect waves-green btn-flat">retour</button>
-            </div>
+          </div>
 
-          </form>
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="{{ distillerie }}" type="text" name="distillerie">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="{{ type }}" type="text" name="type">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="{{ origine }}" type="text" name="origine">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input value="{{ finition }}" type="text" name="finition">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s3">
+              <input value="{{ titre }}" type="text" name="titre">
+            </div>
+            <div class="input-field col s3">
+              <input value="{{ prix }}" type="text" name="prix">
+            </div>
+          </div>
+
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Image</span>
+              <input type="file" name="imgFiche">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
 
         </div>
+        <div class="modal-footer">
+          <button type="submit" class="modal-close waves-effect waves-green btn-flat">validé</button>
+          <button type="button" class="modal-close waves-effect waves-green btn-flat">retour</button>
+        </div>
 
-        {{/each}}
-      </ul>
+      </form>
     </div>
+    {{/each }}
   </div>
 </div>
