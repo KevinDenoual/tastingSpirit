@@ -7,44 +7,41 @@ module.exports = {
     },
 
     postConnexion: async (req, res) => {
-        const userAuth = await User.findOne({ email: req.body.email })
-        console.log(userAuth);
+        const email = req.body.email
+        const password = req.body.password
+        const userAuth = await User.findOne({email : req.body.email})
+        console.log(userAuth)
         
         if (!userAuth) {
-            res.redirect('/connexion')
+            res.json({ message: "Email or password not found"})
+            // res.redirect('/connexion')
         } else {
-            const { email, password } = req.body
+            
             const sess = req.session 
 
-            User.findOne({email}, (err, User) => {
-                sess.userId           = User.id
-                sess.firstname        = User.firstname
-                sess.lastname         = User.lastname
-                sess.email            = User.email
-                sess.status           = User.status
-                sess.isVerified       = User.isVerified
-                sess.isAdmin          = User.isAdmin
-                sess.isBan            = User.isBan
-                sess.imgUser          = User.imgUser
+            bcrypt.compare(password, userAuth.password, (err, same) => {
 
-                if (User) {
-                    if (sess.status === 'user') {
-                        bcrypt.compare(password, User.password, (err, same) => {
-                            if (same) {
-                                req.session.userId = User._id
-                                res.redirect('/')
-                            } else if ( err ) {
-                                console.log(err);                    
-                            }
-                        })
-                        
-                    } else (err) 
-                        console.log(err);
-                                     
+                if (!same) {
+                    console.log('error password')      
+                    res.json({ message: "Email or password not found"})
                 } else {
-                    res.redirect('/connexion')
+                    
+                        sess.userId           = userAuth.id
+                        sess.firstname        = userAuth.firstname
+                        sess.lastname         = userAuth.lastname
+                        sess.email            = userAuth.email
+                        sess.status           = userAuth.status
+                        sess.isVerified       = userAuth.isVerified
+                        sess.isAdmin          = userAuth.isAdmin
+                        sess.isBan            = userAuth.isBan
+                        sess.imgUser          = userAuth.imgUser
+                    console.log(sess);
+                    
+                        res.redirect('/')
                 }
             })
+            
         }
+
     }
 }

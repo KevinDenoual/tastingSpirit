@@ -27,8 +27,8 @@ const port = process.env.PORT || 3000
 const googleStrat = require('./api/config/googleStrat')
 const keys = require('./api/config/keys')
 
-// const urlDB = keys.mongoDB.urlCloud
-const urlDB = keys.mongoDB.urlLocal
+const urlDB = keys.mongoDB.urlCloud
+// const urlDB = keys.mongoDB.urlLocal
 
 
 // ************** Method-Override ***********
@@ -91,7 +91,7 @@ app.use(helmet())
 
 
 // ************** Morgan ***********
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 
 
 // ************** Mongoose ***********

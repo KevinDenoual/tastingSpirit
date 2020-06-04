@@ -84,8 +84,6 @@ describe('Fiche', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    // res.body.should.have.property('message').eql('Fiche updated!');
-                    // res.fiche.should.have.property('origine').eql(France);
                     done();
                 });
             });
@@ -104,9 +102,6 @@ describe('Fiche', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    // res.body.should.have.property('message').eql('Book successfully deleted!');
-                    // res.body.result.should.have.property('ok').eql(1);
-                    // res.body.result.should.have.property('n').eql(1);
                     done();
                 });
             });
