@@ -7,8 +7,12 @@ module.exports = {
     get:  async (req, res) => {
         const dbDegust = await degustModel.find(req.params.id)
         const dbUserId = await userCollection.findById(req.session.userId)
+        var  accept = ""
+                if(req.cookies.CookieAccept){
+                accept = "true"
+                }
         
-        res.render('profil/espacePerso', { dbDegust, dbUserId } )
+        res.render('profil/espacePerso', { dbDegust, dbUserId, accept } )
         // console.log(dbDegust);
         
     },

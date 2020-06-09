@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+
+         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://www.ts-beta.mac-denoual.fr/</loc>
+    <lastmod>2020-02-14T08:18:11+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+  </sitemap>
+</sitemapindex>

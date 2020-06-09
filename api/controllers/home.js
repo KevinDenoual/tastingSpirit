@@ -4,8 +4,12 @@ const userCollection = require('../database/userModel');
 module.exports = {
     get: async (req, res) => {
         const dbUserId = await userCollection.findById(req.session.userId)
-        console.log(dbUserId);
+        var  accept = ""
+                if(req.cookies.CookieAccept){
+                accept = "true"
+                }
+        // console.log(dbUserId);
         
-        res.render('Homepage/home', { dbUserId })
+        res.render('Homepage/home', { dbUserId, accept })
     }
 }

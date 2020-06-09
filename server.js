@@ -9,6 +9,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const handlebars = require('handlebars');
 const expressSession = require('express-session');
@@ -18,8 +19,6 @@ const helpers = require('handlebars-helpers')();
 const passport = require('passport');
 const morgan = require('morgan') // Documente le journal  
 const helmet = require('helmet') // Helmet helps you secure your Express apps by setting various HTTP headers
-const swaggerUi = require('swagger-ui-express');
-const expressOasGenerator = require('express-aos-generator')
 const app = express()
 const mongoStore = MongoStore(expressSession);
 const port = process.env.PORT || 3000
@@ -33,11 +32,12 @@ const urlDB = keys.mongoDB.urlCloud
 //const urlDB = keys.mongoDB.urlLocal
 
 
-// ************** Express-aos-generator ***********
-expressOasGenerator.init(app,{});
-
 // ************** Method-Override ***********
 app.use(methodOverride('_method'));
+
+
+// ************** Cookie-parser ***********
+app.use(cookieParser())
 
 
 // ************** Body Parser ***********

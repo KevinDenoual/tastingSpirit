@@ -4,6 +4,10 @@ const userCollection = require('../database/userModel');
 module.exports = {
     get: async (req, res) => {
         const dbUserId = await userCollection.findById(req.session.userId)
-        res.render('Homepage/guide', { dbUserId })
+        var  accept = ""
+                if(req.cookies.CookieAccept){
+                accept = "true"
+                }
+        res.render('Homepage/guide', { dbUserId, accept })
     }
 }

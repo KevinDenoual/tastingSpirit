@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin
+Disallow: /forgotpassword.hbs
+Disallow: /newpassword.hbs
+Disallow: /verifMail.hbs
+Disallow: /btnAdmin.hbs
+
+Sitemap : https://ts-beta.mac-denoual.fr/sitemap.xml

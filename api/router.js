@@ -28,6 +28,9 @@ const message = require('./controllers/admin/message')
 const userList = require('./controllers/admin/userList')
 const Fiche = require('./controllers/admin/Fiche')
 const multer = require('./config/multer')
+const robot = require('./controllers/robot')
+// RGPD
+const rgpd = require('./controllers/cookie')
 
 
 // ************** Import middleware ************** 
@@ -36,6 +39,11 @@ const isAdmin = require('./middleware/isAdmin')
 const isVerified = require('./middleware/isVerified')
 
 
+// ************** Robot.txt + sitemap ************** 
+router.route('/robots.txt')
+    .get(robot.robot)
+router.route('/sitemap.xml')
+    .get(robot.sitemap)
 
 
 // ************** Auth **************   
@@ -127,5 +135,10 @@ router.route('/admin/userList')
 router.route('/admin/userList/:id')
     .delete(userList.deleteOne)
     .put(userList.modifStatus)
+
+    // ************** RGPD ************** 
+router.route('/rgpd')
+    .post(rgpd.post)
+
 
 module.exports = router
