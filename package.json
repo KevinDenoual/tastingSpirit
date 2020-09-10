@@ -16,7 +16,7 @@
     "chai-http": "^4.3.0",
     "chai-things": "^0.2.0",
     "express-oas-generator": "^1.0.23",
-    "handlebars": "^4.5.0",
+    "handlebars": "^4.5.3",
     "mocha": "^7.1.2",
     "nodemon": "^2.0.2",
     "should": "^13.2.3",
